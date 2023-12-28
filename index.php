@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <header class="fixed">
-        <nav class="topnav">
+    <header class="fixed ">
+        <nav class="topnav ">
             <div class="logo"><img src="img/logo1.png" alt="logo" /></div>
             <div class="menu" id="myTopnav">
                 <a href="#home">Beranda</a>
@@ -25,7 +25,7 @@
                 <a href="#major">Program Keahlian</a>
                 <a href="#gallery">Galeri</a>
                 <a href="#contact">Kontak Kami</a>
-                <a href="regis.jsp">Pendaftaran</a>
+                <a href="pendaftaran.php">Pendaftaran</a>
                 <a href="login.php">Login</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
