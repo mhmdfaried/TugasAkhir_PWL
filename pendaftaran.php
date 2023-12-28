@@ -45,149 +45,154 @@
         <div class="header-home">
           <div class="regis-form">
             <h1>PENDAFTARAN</h1>
-            <form class="" action="register" method="post" role="form" >
+            <!-- FORM PEMBUKA -->
+            <form class="" action="proses/proses_pendaftaran.php" method="post" role="form">
               <div class="row g-3">
-                <div class="col-6">
-                  <div class="row g-3">
-                  <div class="col-md-12 ">
-                      <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                  <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                    </div>
-                    <div class="col-md-6 ">
-                      <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-crosshair"></i></span>
-                  <input type="text" class="form-control" placeholder="Tempat lahir" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar"></i></span>
-                        <input type="date" class="form-control" placeholder="Tanggal Lahir" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                    </div>
-                    <div class="col-12">
-                      <div class="input-group">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat"></textarea>
-                    </div>
-                    </div>
-                    <div class="col-6">
-                    <select class="form-select">
-                      <option selected>Jenis Kelamin</option>
-                      <option value="laki-laki">Laki-Laki</option>
-                      <option value="perempuan">Perempuan</option>
-                    </select>
-                    </div>
-                    <div class="col-6">
-                    <select class="form-select " >
-                      <option selected>Agama</option>
-                      <option value="islam">Islam</option>
-                      <option value="protestan">Protestan</option>
-                      <option value="katolik">Katolik</option>
-                      <option value="budha">Budha</option>
-                      <option value="hindhu">Hindhu</option>
-                      <option value="konghucu">Konghucu</option>
-                    </select>
-                    </div>
-                    <div class="col-6">
-                        <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-at"></i></span>
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    </div>
-                    <div class="col-6">
-                    <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone"></i></span>
-                  <input type="text" class="form-control" placeholder="Nomor Telepon" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                    </div>
-                    <label for="" class="text-light">Nilai Rata- Rata</label>
-                    <div class="col-md-2">
-                    <input type="text" class="form-control" id="inputZip" placeholder="Matematika" maxlength="2">
-                    </div>
-                    <div class="col-md-2">
-                    <input type="text" class="form-control" id="inputZip" placeholder="IPA" maxlength="2">
-                    </div>
-                    <div class="col-md-2">
-                    <input type="text" class="form-control" id="inputZip" placeholder="IPS" maxlength="2">
-                    </div>
-                    <div class="col-md-2">
-                    <input type="text" class="form-control" id="inputZip" placeholder="B.Indonesia" maxlength="2">
-                    </div>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" id="inputZip" placeholder="B.Inggris" maxlength="2">
-                    </div>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" id="inputZip" placeholder="Pen.Agama" maxlength="2">
-                    </div>
+                  <div class="col-6">
+                      <div class="row g-3">
+                          <!-- Personal Information -->
+                          <div class="col-md-12">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                                  <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-crosshair"></i></span>
+                                  <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat lahir" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar"></i></span>
+                                  <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-12">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
+                                  <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat"></textarea>
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <select class="form-select" name="jenis_kelamin">
+                                  <option selected>Jenis Kelamin</option>
+                                  <option value="laki-laki">Laki-Laki</option>
+                                  <option value="perempuan">Perempuan</option>
+                              </select>
+                          </div>
+                          <div class="col-6">
+                              <select class="form-select" name="agama">
+                                  <option selected>Agama</option>
+                                  <option value="islam">Islam</option>
+                                  <option value="protestan">Protestan</option>
+                                  <option value="katolik">Katolik</option>
+                                  <option value="budha">Budha</option>
+                                  <option value="hindhu">Hindhu</option>
+                                  <option value="konghucu">Konghucu</option>
+                              </select>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-at"></i></span>
+                                  <input type="text" class="form-control" name="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone"></i></span>
+                                  <input type="text" class="form-control" name="no_telepon" placeholder="Nomor Telepon" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
 
-              </div>
-              </div>
-                <div class="col-6">
-                  <div class="row g-3">
-                  <div class="col-md-6 ">
-                      <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-standing"></i></span>
-                  <input type="text" class="form-control" placeholder="Nama Ayah" aria-label="Username" aria-describedby="basic-addon1">
+                          <!-- Average Score -->
+                          <label for="" class="text-light">Nilai Rata- Rata</label>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_matematika" placeholder="Matematika" maxlength="2">
+                          </div>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_ipa" placeholder="IPA" maxlength="2">
+                          </div>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_ips" placeholder="IPS" maxlength="2">
+                          </div>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_b_indonesia" placeholder="B.Indonesia" maxlength="2">
+                          </div>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_b_inggris" placeholder="B.Inggris" maxlength="2">
+                          </div>
+                          <div class="col-md-2">
+                              <input type="text" class="form-control" name="nilai_agama" placeholder="Pen.Agama" maxlength="2">
+                          </div>
+                      </div>
                   </div>
-                    </div>
-                    <div class="col-md-6 ">
-                      <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-standing-dress"></i></span>
-                  <input type="text" class="form-control" placeholder="Nama Ibu" aria-label="Username" aria-describedby="basic-addon1">
+
+                  <!-- Parent Information -->
+                  <div class="col-6">
+                      <div class="row g-3">
+                          <div class="col-md-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-standing"></i></span>
+                                  <input type="text" class="form-control" name="nama_ayah" placeholder="Nama Ayah" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-standing-dress"></i></span>
+                                  <input type="text" class="form-control" name="nama_ibu" placeholder="Nama Ibu" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill"></i></span>
+                                  <input type="text" class="form-control" name="pekerjaan_ayah" placeholder="Pekerjaan Ayah" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill"></i></span>
+                                  <input class="form-control" name="pekerjaan_ibu" placeholder="Pekerjaan Ibu">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-mortarboard"></i></span>
+                                  <input class="form-control" name="pendidikan_ayah" placeholder="Pendidikan Ayah">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-mortarboard"></i></span>
+                                  <input class="form-control" name="pendidikan_ibu" placeholder="Pendidikan Ibu">
+                              </div>
+                          </div>
+                          <div class="col-12">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone"></i></span>
+                                  <input type="text" class="form-control" name="no_telepon_orangtua" placeholder="Nomor Telepon Orangtua" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-12">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
+                                  <textarea class="form-control" name="alamat_orangtua" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat Orangtua"></textarea>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="input-group">
-                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill"></i></span>
-                          <input type="text" class="form-control" placeholder="Pekerjaan Ayah" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-building-fill"></i></span>
-                        <input class="form-control"  placeholder="Pekerjaan Ibu"></input>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-mortarboard"></i></span>
-                        <input class="form-control"  placeholder="Pendidikan Ayah"></input>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-mortarboard"></i></span>
-                        <input class="form-control"  placeholder="Pendidikan Ibu"></input>
-                      </div>
-                    </div>
-                   
-                    <div class="col-12">
-                        <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone"></i></span>
-                        <input type="text" class="form-control" placeholder="Nomor Telepon Orangtua" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    </div>
-                    <div class="col-12">
-                      <div class="input-group">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat Orangtua"></textarea>
-                    </div>
-                    </div>
               </div>
-              </div>
-            </div>
               <br />
               <br />
               <div class="row">
-               <div class="btn-primary">
-                <a href="index.php" class="col-6">Batalkan</a>
-                <button type="submit" class="col-6">Simpan</button>
-                </div>
+                  <div class="btn-primary">
+                      <a href="index.php" class="col-6">Batalkan</a>
+                      <button type="submit" class="col-6">Simpan</button>
+                  </div>
               </div>
-            </form>
+          </form>
+            <!-- FORM PENUTUP -->
           </div>
         </div>
       </div>
@@ -199,6 +204,5 @@
     <footer>
       <p>Copyright &copy; Project 3 - Group 5 2023</p>
     </footer>
-    
   </div>
 </html>
