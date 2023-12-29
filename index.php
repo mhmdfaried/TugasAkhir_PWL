@@ -95,33 +95,18 @@
             <br /><br /><br />
             <h1>PROGRAM KEAHLIAN</h1>
             <div class="deskripsi-major grid-container grid-column-major">
-                <div class="container-major">
-                    <h2>Desain Komunikasi Visual</h2>
-                    <p>
-                        Berfokus pada kompetensi di bidang Desain, Fotografi,
-                        Sinematografi, 3D Modelling, dan Visual Effect, Lulusan dapat
-                        bekerja sebagai Designer, Sinematografer, 3D Artist dan Visual
-                        Efect.
-                    </p>
-                    <br /><br />
-                </div>
-                <div class="container-major">
-                    <h2>Teknik Komputer Jaringan</h2>
-                    <p>
-                        Berfokus pada kompetensi di bidang Engineering, dan Network
-                        Infrastructur. Lulusan dapat bekerja sebagai IT Support, Server
-                        Administrator, Cyber Security dan Network Engineer.
-                    </p>
-                    <br /><br />
-                </div>
-                <div class="container-major">
-                    <h2>Rekayasa Perangkat Lunak</h2>
-                    <p>
-                        Berfokus pada kompetensi siswa di bidang : Website, Aplikasi
-                        berbasis Dekstop, dan Android. Lulusan dapat bekerja sebagai
-                        Developer Application.
-                    </p>
-                </div>
+                <?php 
+                include ('koneksi.php');
+                    $result = mysqli_query($conn, "SELECT * FROM tbl_jurusan");
+                    while ($d = mysqli_fetch_assoc($result)) {
+                        echo "   <div class='container-major'>
+                        <h2>{$d['nama_jurusan']}</h2>
+                        <p>{$d['deskripsi']}</p>
+                        <br /><br />
+                    </div>";
+                    }
+                ?>
+             
             </div>
         </div>
     </section>
