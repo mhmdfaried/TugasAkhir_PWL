@@ -73,18 +73,6 @@ body {
 
 /* home */
 
-.container {
-  width: 100%;
-  background-color: #0a4d68;
-  background-image: linear-gradient(
-    rgba(44, 62, 80, 0.6),
-    rgba(248, 241, 234, 0.33)
-  ),
-  url("../img/img3.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .header-home {
   width: 100%;
