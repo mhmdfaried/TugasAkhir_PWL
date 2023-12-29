@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $agama = $_POST['agama'];
     $email = $_POST['email'];
     $no_telepon = $_POST['no_telepon'];
+    $jurusan = $_POST['jurusan'];
     $nilai_matematika = $_POST['nilai_matematika'];
     $nilai_ipa = $_POST['nilai_ipa'];
     $nilai_ips = $_POST['nilai_ips'];
@@ -19,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nilai_agama = $_POST['nilai_agama'];
 
     // Hitung total nilai dan rata-rata
-    $total_nilai = $nilai_ipa + $nilai_ips + $nilai_b_indonesia + $nilai_b_inggris + $nilai_agama;
-    $rata_rata = $total_nilai / 5;
+    $total_nilai = $nilai_matematika + $nilai_ipa + $nilai_ips + $nilai_b_indonesia + $nilai_b_inggris + $nilai_agama;
+    $rata_rata = $total_nilai / 6;
 
     // Simpan data calon siswa ke dalam tabel calon_siswa
-    $sql_insert_calon_siswa = "INSERT INTO calon_siswa (nama, tempat_lahir, tanggal_lahir, alamat, jenis_kelamin, agama, email, no_telepon, total_nilai, rata_rata) 
-    VALUES ('$nama', '$tempat_lahir', '$tanggal_lahir', '$alamat', '$jenis_kelamin', '$agama', '$email', '$no_telepon', '$total_nilai', '$rata_rata')";
+    $sql_insert_calon_siswa = "INSERT INTO tbl_calonsiswa (nama, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, no_telepon, email, nilai_rata_rata,jurusan_id) 
+    VALUES ('$nama', '$alamat', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$no_telepon', '$email', '$rata_rata', '$jurusan')";
     // Eksekusi query
     mysqli_query($conn, $sql_insert_calon_siswa);
 
@@ -38,12 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $pekerjaan_ibu = $_POST['pekerjaan_ibu'];
      $pendidikan_ayah = $_POST['pendidikan_ayah'];
      $pendidikan_ibu = $_POST['pendidikan_ibu'];
+     $penghasilan = $_POST['penghasilan'];
      $no_telepon_orangtua = $_POST['no_telepon_orangtua'];
      $alamat_orangtua = $_POST['alamat_orangtua'];
  
      // Simpan data orang tua ke dalam tabel orang_tua
-     $sql_insert_orang_tua = "INSERT INTO orang_tua (calon_siswa_id, nama_ayah, nama_ibu, pekerjaan_ayah, pekerjaan_ibu, pendidikan_ayah, pendidikan_ibu, no_telepon_orangtua, alamat_orangtua) 
-                              VALUES ('$calon_siswa_id', '$nama_ayah', '$nama_ibu', '$pekerjaan_ayah', '$pekerjaan_ibu', '$pendidikan_ayah', '$pendidikan_ibu', '$no_telepon_orangtua', '$alamat_orangtua')";
+     $sql_insert_orang_tua = "INSERT INTO tbl_orangtua (calonsiswa_id, nama_ayah,pekerjaan_ayah, pendidikan_ayah, nama_ibu, pekerjaan_ibu, pendidikan_ibu, penghasilan, no_teleponortu, alamat_ortu) 
+                              VALUES ('$calon_siswa_id', '$nama_ayah', '$pekerjaan_ayah', '$pendidikan_ayah', '$nama_ibu', '$pekerjaan_ibu','$pendidikan_ibu', $penghasilan, '$no_telepon_orangtua', '$alamat_orangtua')";
  
      // Eksekusi query
      mysqli_query($conn, $sql_insert_orang_tua);

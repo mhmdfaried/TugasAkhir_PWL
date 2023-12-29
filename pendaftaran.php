@@ -75,14 +75,14 @@
                                   <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat"></textarea>
                               </div>
                           </div>
-                          <div class="col-6">
+                          <div class="col-4">
                               <select class="form-select" name="jenis_kelamin">
                                   <option selected>Jenis Kelamin</option>
                                   <option value="laki-laki">Laki-Laki</option>
                                   <option value="perempuan">Perempuan</option>
                               </select>
                           </div>
-                          <div class="col-6">
+                          <div class="col-4">
                               <select class="form-select" name="agama">
                                   <option selected>Agama</option>
                                   <option value="islam">Islam</option>
@@ -91,6 +91,14 @@
                                   <option value="budha">Budha</option>
                                   <option value="hindhu">Hindhu</option>
                                   <option value="konghucu">Konghucu</option>
+                              </select>
+                          </div>
+                          <div class="col-4">
+                              <select class="form-select" name="jurusan">
+                                  <option selected>Jurusan Pilihan</option>
+                                  <option value="1">Desain Komunikasi Visual</option>
+                                  <option value="2">Rekayasa Perangkat Lunak</option>
+                                  <option value="3">Teknik Komputer dan Jaringan</option>
                               </select>
                           </div>
                           <div class="col-6">
@@ -168,10 +176,16 @@
                                   <input class="form-control" name="pendidikan_ibu" placeholder="Pendidikan Ibu">
                               </div>
                           </div>
-                          <div class="col-12">
+                          <div class="col-6">
                               <div class="input-group">
                                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone"></i></span>
                                   <input type="text" class="form-control" name="no_telepon_orangtua" placeholder="Nomor Telepon Orangtua" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="input-group">
+                                  <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                  <input type="text" class="form-control" name="penghasilan" placeholder="Jumlah Penghasilan Orangtua" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                           </div>
                           <div class="col-12">
