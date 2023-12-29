@@ -117,7 +117,7 @@
             <h1>GALERI</h1>
             <div class="slideshow-container">
                 <div class="mySlides fade">
-                    <img src="img/img2.jpg" style="width: 100%"  />
+                    <img src="img/img3.jpg" style="width: 100%" />
                 </div>
 
                 <div class="mySlides fade">
@@ -132,34 +132,36 @@
         </div>
     </section>
 
-    <section id="contact" style="position: relative">
-        <div class="contact-us grid-container grid-column-contact">
-            <br />
-            <div class="deskripsi-contact">
-                <h1>LOKASI</h1>
-                <h2>Jl Poras No. 7, Sindang Barang Loji</h2>
-                <ul>
-                    <li>
-                        <p>
-                            Whatsapp :
-                            <a
-                                href="https://api.whatsapp.com/send/?phone=6287711177442&text&type=phone_number&app_absent=0">0877-1117-7442
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            email :
-                            <a href="https://smkit.pesat@gmail.com">smkit.pesat@gmail.com
-                            </a>
-                        </p>
-                    </li>
-                </ul>
+    <section id="contact">
+        <div class="contact">
+            <div class="contact-us grid-container grid-column-contact">
+                <br />
+                <div class="deskripsi-contact">
+                    <h1>LOKASI</h1>
+                    <h2>Jl Poras No. 7, Sindang Barang Loji</h2>
+                    <ul>
+                        <li>
+                            <p>
+                                Whatsapp :
+                                <a
+                                    href="https://api.whatsapp.com/send/?phone=6287711177442&text&type=phone_number&app_absent=0">0877-1117-7442
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                email :
+                                <a href="https://smkit.pesat@gmail.com">smkit.pesat@gmail.com
+                                </a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <iframe class="maps"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5115676718647!2d106.76819540000001!3d-6.5831478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff2d5ecf4b%3A0x9da488eab0064996!2sSMK%20informatika%20Pesat%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1686408889375!5m2!1sid!2sid"
+                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <iframe class="maps"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5115676718647!2d106.76819540000001!3d-6.5831478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff2d5ecf4b%3A0x9da488eab0064996!2sSMK%20informatika%20Pesat%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1686408889375!5m2!1sid!2sid"
-                width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <br />

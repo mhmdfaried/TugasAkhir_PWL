@@ -50,6 +50,7 @@ body {
 }
 
 .menu a {
+  float: left;
   display: block;
   color: aliceblue;
   font-weight: bold;
@@ -79,7 +80,7 @@ body {
     rgba(44, 62, 80, 0.6),
     rgba(248, 241, 234, 0.33)
   ),
-  url("../img/img2.jpg");
+  url("../img/img3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -175,6 +176,22 @@ body {
   width: 50%;
 }
 
+.slideshow-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mySlides {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .fade {
   animation-name: fade;
   animation-duration: 1s;
@@ -192,6 +209,12 @@ body {
 }
 
 /* contact */
+.contact {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .contact-us h1 {
   font-family: "MysticGate";
