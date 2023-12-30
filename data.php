@@ -30,7 +30,8 @@
         <form action="" method="post" class="mb-3">
             <div class="input-group">
                 <a href="tambah.php" class="btn btn-success">+ Tambahkan Data</a>
-                <input type="text" class="form-control" placeholder="Cari menggunakan ID atau Nama" name="searchTerm">
+                <input type="text" class="form-control" placeholder="Cari menggunakan Nama atau Jenis Kelamin"
+                    name="searchTerm">
                 <button class="btn btn-primary" type="submit">Cari</button>
             </div>
         </form>
@@ -66,11 +67,11 @@
                 $whereClause = '';
 
                 if (!empty($searchTerm)) {
-                    $whereClause = "WHERE id_pembeli LIKE '%$searchTerm%' OR nama LIKE '%$searchTerm%'";
+                    $whereClause = "WHERE nama LIKE '%$searchTerm%' OR jenis_kelamin LIKE '%$searchTerm%'";
                 }
 
-                $query = "SELECT id_pembeli, nama, nohp, nama_barang, harga, jumlah * harga AS Total_Bayar
-                        FROM tbl_faried
+                $query = "SELECT id, nama, alamat, jenis_kelamin, no_telepon, email, jurusan_id 
+                        FROM tbl_calonsiswa
                         $whereClause
                         LIMIT $start, $limit";
                 $result = $conn->query($query);
@@ -84,16 +85,17 @@
                     while ($row = $result->fetch_assoc()) {
                         // Menampilkan baris data dalam tabel
                         echo "<tr class='text-center'>";
-                        echo "<td>" . $row["id_pembeli"] . "</td>";
+                        echo "<td>" . $row["id"] . "</td>";
                         echo "<td>" . $row["nama"] . "</td>";
-                        echo "<td>" . $row["nohp"] . "</td>";
-                        echo "<td>" . $row["nama_barang"] . "</td>";
-                        echo "<td>" . $row["harga"] . "</td>";
-                        echo "<td>" . $row["Total_Bayar"] . "</td>";
+                        echo "<td>" . $row["alamat"] . "</td>";
+                        echo "<td>" . $row["jenis_kelamin"] . "</td>";
+                        echo "<td>" . $row["no_telepon"] . "</td>";
+                        echo "<td>" . $row["email"] . "</td>";
+                        echo "<td>" . $row["jurusan_id"] . "</td>";
                         echo '<td>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id_pembeli"] . '" class="btn btn-info">Selengkapnya</a>
-                                <a href="edit.php?id_pembeli=' . $row["id_pembeli"] . '" class="btn btn-warning">Edit</a>
-                                <a href="proses/proses_hapus.php?id_pembeli=' . $row["id_pembeli"] . '" class="btn btn-danger">Hapus</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>
+                                <a href="edit.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                                <a href="proses/proses_hapus.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
                             </td>';
                         echo "</tr>";
                     }
@@ -113,7 +115,7 @@
         include "koneksi.php";
 
         // Query untuk mendapatkan total data
-        $queryTotal = "SELECT COUNT(id_pembeli) as total FROM tbl_faried";
+        $queryTotal = "SELECT COUNT(id) as total FROM tbl_calonsiswa";
         $resultTotal = $conn->query($queryTotal);
         $dataTotal = $resultTotal->fetch_assoc();
         $totalPages = ceil($dataTotal['total'] / $limit);
@@ -149,8 +151,7 @@
     include "koneksi.php";
 
     // Mengambil data untuk modal
-    $queryModal = "SELECT id_pembeli, nama, alamat, nohp, tgl_transaksi, jenis_barang, nama_barang, jumlah, harga
-                    FROM tbl_faried";
+    $queryModal = "SELECT * FROM tbl_calonsiswa";
     $resultModal = $conn->query($queryModal);
 
     if ($resultModal->num_rows > 0) {
