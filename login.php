@@ -36,7 +36,6 @@
                         <div class="form-group my-2">
 
                         </div>
-
                         <br />
                         <h1>Belum Punya Akun? </h1>
                         <div class="btn-primary">

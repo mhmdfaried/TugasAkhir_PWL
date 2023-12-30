@@ -30,8 +30,8 @@
         <form action="" method="post" class="mb-3">
             <div class="input-group">
                 <a href="tambah.php" class="btn btn-success">+ Tambahkan Data</a>
-                <input type="text" class="form-control" placeholder="Search menggunakan ID atau Nama" name="searchTerm">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <input type="text" class="form-control" placeholder="Cari menggunakan ID atau Nama" name="searchTerm">
+                <button class="btn btn-primary" type="submit">Cari</button>
             </div>
         </form>
 
@@ -40,14 +40,15 @@
             <thead>
                 <!-- Header kolom-kolom pada tabel -->
                 <tr>
-                    <th class='text-center'>ID Pembeli</th>
-                    <th class='text-center'>Nama</th>
-                    <th class='text-center'>No. Telephone</th>
-                    <th class='text-center'>Nama Barang</th>
-                    <th class='text-center'>Harga Barang</th>
-                    <th class='text-center'>Total Bayar</th>
+                    <th class='text-center'>No</th>
+                    <th class='text-center'>Nama Calon Siswa</th>
+                    <th class='text-center'>Alamat</th>
+                    <th class='text-center'>Jenis Kelamin</th>
+                    <th class='text-center'>Nomor Telepon</th>
+                    <th class='text-center'>Email</th>
+                    <th class='text-center'>Jurusan Pilihan</th>
                     <th class='text-center'>Aksi</th>
-                </tr>   
+                </tr>
             </thead>
             <tbody>
                 <!-- Menampilkan data dari database -->
