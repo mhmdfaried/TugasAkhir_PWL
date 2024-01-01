@@ -35,6 +35,13 @@
                             <br />
                             <input type="password" name="password" required="" placeholder="Isi Password Anda."
                                 class="form-control" />
+                            <br />
+                            <label>Masukkan Kode Captcha :</label>
+                            <div class="captcha">
+                                <img src="proses/proses_captcha.php" alt="gambar">
+                                <input type="text" name="kodecaptcha" required="" placeholder="Isi Kode Captcha."
+                                    class="form-control" value="" maxlength="6" />
+                            </div>
                         </div>
 
                         <br />

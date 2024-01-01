@@ -170,7 +170,6 @@ body {
     align-items: center;
 }
 
-
 .mySlides {
     width: 70%;
     height: 70%;
@@ -178,7 +177,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .fade {
   animation-name: fade;
