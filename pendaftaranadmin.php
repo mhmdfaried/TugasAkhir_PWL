@@ -21,19 +21,15 @@
 
 <body>
     <header class="fixed">
-        <nav class="topnav">
-            <div class="logo"><img src="img/logo1.png" alt="logo" /></div>
-            <div class="menu d-flex justify-content-end" id="myTopnav">
-                <a href="index.php">Beranda</a>
-                <a href="index.php#tentangkami">Tentang Kami</a>
-                <a href="index.php#major">Program Keahlian</a>
-                <a href="index.php#gallery">Galeri</a>
-                <a href="index.php#contact">Kontak Kami</a>
-                <a href="pendaftaran.php">Pendaftaran</a>
-                <a href="login.php">Login</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
+        <nav class="navbar">
+            <div class="container">
+                <img src="img/img1.png" width="50" height="50" alt="">
+                <div class="menu">
+                    <ul>
+                        <li><a href="proses/proses_logout.php"
+                                onclick="return confirm('Anda yakin ingin keluar?');">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -42,36 +38,20 @@
         <div class="">
             <div class="header-home">
                 <div class="regis-form">
-                    <?php
-        // Menghubungkan dengan database
-        include "koneksi.php";
-
-        // Ambil id_pembeli dari parameter URL
-        $id = $_GET["id"];
-
-        // Query untuk mendapatkan data sesuai id_pembeli
-        $query = "SELECT * FROM tbl_calonsiswa WHERE id='$id'";
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            // Mengambil data dari hasil query
-            $row = $result->fetch_assoc();
-        ?>
-                    <h1>EDIT DATA CALON SISWA</h1>
+                    <h1>PENDAFTARAN</h1>
                     <!-- FORM PEMBUKA -->
-                    <form action="proses/proses_edit.php" method="post" role="form">
+                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form">
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
                                     <!-- Personal Information -->
                                     <div class="col-md-12">
                                         <div class="input-group">
-                                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-person"></i></span>
                                             <input type="text" class="form-control" name="nama"
-                                                value="<?php echo $row['nama']; ?>" placeholder="Nama Lengkap"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                placeholder="Nama Lengkap" aria-label="Username"
+                                                aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -79,8 +59,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-crosshair"></i></span>
                                             <input type="text" class="form-control" name="tempat_lahir"
-                                                value="<?php echo $row['tempat_lahir']; ?>" placeholder="Tempat lahir"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                placeholder="Tempat lahir" aria-label="Username"
+                                                aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -88,8 +68,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-calendar"></i></span>
                                             <input type="date" class="form-control" name="tanggal_lahir"
-                                                value="<?php echo $row['tanggal_lahir']; ?>" placeholder="Tanggal Lahir"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                placeholder="Tanggal Lahir" aria-label="Username"
+                                                aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -98,66 +78,40 @@
                                                     class="bi bi-pin-map"></i></span>
                                             <textarea class="form-control" name="alamat"
                                                 id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="Alamat"><?php echo $row['alamat']; ?></textarea>
+                                                placeholder="Alamat"></textarea>
                                         </div>
                                     </div>
-
                                     <div class="col-4">
                                         <select class="form-select" name="jenis_kelamin">
                                             <option selected>Jenis Kelamin</option>
-                                            <option value="Laki-Laki"
-                                                <?php echo ($row['jenis_kelamin'] == 'Laki-Laki') ? 'selected' : ''; ?>>
-                                                Laki-Laki</option>
-                                            <option value="Perempuan"
-                                                <?php echo ($row['jenis_kelamin'] == 'Perempuan') ? 'selected' : ''; ?>>
-                                                Perempuan</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
                                         </select>
                                     </div>
-
                                     <div class="col-4">
                                         <select class="form-select" name="agama">
-                                            <option <?php echo ($row['agama'] == 'Agama') ? 'selected' : ''; ?>>Agama
-                                            </option>
-                                            <option value="islam"
-                                                <?php echo ($row['agama'] == 'islam') ? 'selected' : ''; ?>>Islam
-                                            </option>
-                                            <option value="protestan"
-                                                <?php echo ($row['agama'] == 'protestan') ? 'selected' : ''; ?>>
-                                                Protestan</option>
-                                            <option value="katolik"
-                                                <?php echo ($row['agama'] == 'katolik') ? 'selected' : ''; ?>>Katolik
-                                            </option>
-                                            <option value="budha"
-                                                <?php echo ($row['agama'] == 'budha') ? 'selected' : ''; ?>>Budha
-                                            </option>
-                                            <option value="hindhu"
-                                                <?php echo ($row['agama'] == 'hindhu') ? 'selected' : ''; ?>>Hindhu
-                                            </option>
-                                            <option value="konghucu"
-                                                <?php echo ($row['agama'] == 'konghucu') ? 'selected' : ''; ?>>Konghucu
-                                            </option>
+                                            <option selected>Agama</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="protestan">Protestan</option>
+                                            <option value="katolik">Katolik</option>
+                                            <option value="budha">Budha</option>
+                                            <option value="hindhu">Hindhu</option>
+                                            <option value="konghucu">Konghucu</option>
                                         </select>
                                     </div>
                                     <div class="col-4">
                                         <select class="form-select" name="jurusan">
                                             <option selected>Jurusan Pilihan</option>
-                                            <option value="Desain Komunikasi Visual"
-                                                <?php echo ($row['jurusan'] == '1') ? 'selected' : ''; ?>>
-                                                Desain Komunikasi Visual</option>
-                                            <option value="Rekayasa Perangkat Lunak"
-                                                <?php echo ($row['jurusan'] == '2') ? 'selected' : ''; ?>>
-                                                Rekayasa Perangkat Lunak</option>
-                                            <option value="Teknik Komputer dan Jaringan"
-                                                <?php echo ($row['jurusan'] == '3') ? 'selected' : ''; ?>>
-                                                Teknik Komputer dan Jaringan</option>
+                                            <option value="1">Desain Komunikasi Visual</option>
+                                            <option value="2">Rekayasa Perangkat Lunak</option>
+                                            <option value="3">Teknik Komputer dan Jaringan</option>
                                         </select>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-envelope-at"></i></span>
-                                            <input type="text" class="form-control" name="email"
-                                                value="<?php echo $row['email']; ?>" placeholder="Email"
+                                            <input type="text" class="form-control" name="email" placeholder="Email"
                                                 aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
@@ -166,8 +120,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-telephone"></i></span>
                                             <input type="text" class="form-control" name="no_telepon"
-                                                value="<?php echo $row['no_telepon']; ?>" placeholder="Nomor Telepon"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                                placeholder="Nomor Telepon" aria-label="Username"
+                                                aria-describedby="basic-addon1">
                                         </div>
                                     </div>
 
@@ -292,14 +246,6 @@
                             </div>
                         </div>
                     </form>
-                    <?php
-        } else {
-            echo "Data not found.";
-        }
-
-        // Menutup koneksi ke database
-        $conn->close();
-        ?>
                     <!-- FORM PENUTUP -->
                 </div>
             </div>
