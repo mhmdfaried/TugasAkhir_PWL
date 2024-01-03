@@ -17,10 +17,10 @@
         include "koneksi.php";
 
         // Ambil id_pembeli dari parameter URL
-        $id_pembeli = $_GET["id_pembeli"];
+        $id_siswa = $_POST["id"];
 
         // Query untuk mendapatkan data sesuai id_pembeli
-        $query = "SELECT * FROM tbl_faried WHERE id_pembeli='$id_pembeli'";
+        $query = "SELECT * FROM tbl_calonsiswa WHERE id='$id_siswa'";
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
