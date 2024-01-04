@@ -42,13 +42,11 @@
                 <!-- Header kolom-kolom pada tabel -->
                 <tr>
                     <th class='text-center'>No</th>
-                    <th class='text-center'>Nama Calon Siswa</th>
-                    <th class='text-center'>Alamat</th>
-                    <th class='text-center'>Jenis Kelamin</th>
-                    <th class='text-center'>Nomor Telepon</th>
-                    <th class='text-center'>Email</th>
-                    <th class='text-center'>Jurusan Pilihan</th>
-                    <th class='text-center'>Status</th>
+                    <th class='text-center'>Nama Jurusan</th>
+                    <th class='text-center'>Deskripsi</th>
+                    <th class='text-center'>Nama Koordinator</th>
+                    <th class='text-center'>Email Koordinator</th>
+                    <th class='text-center'>No. Telepon Koordinator</th>
                     <th class='text-center'>Aksi</th>
                 </tr>
             </thead>
@@ -59,7 +57,7 @@
                 include "koneksi.php";
 
                 // Konfigurasi Pagination
-                $limit = 4;
+                $limit = 7;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $start = ($page - 1) * $limit;
 
@@ -71,9 +69,7 @@
                     $whereClause = "WHERE nama LIKE '%$searchTerm%' OR jenis_kelamin LIKE '%$searchTerm%'";
                 }
 
-                $query = "SELECT cs.id, cs.nama, cs.alamat, cs.jenis_kelamin, cs.no_telepon, cs.email, cs.jurusan_id, j.nama_jurusan, cs.status
-                FROM tbl_calonsiswa cs
-                LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id
+                $query = "SELECT * FROM tbl_jurusan
                 $whereClause
                 LIMIT $start, $limit";
 
@@ -89,39 +85,16 @@
                         // Menampilkan baris data dalam tabel
                         echo "<tr class='text-center'>";
                         echo "<td>" . $row["id"] . "</td>";
-                        echo "<td>" . $row["nama"] . "</td>";
-                        echo "<td>" . $row["alamat"] . "</td>";
-                        echo "<td>" . $row["jenis_kelamin"] . "</td>";
-                        echo "<td>" . $row["no_telepon"] . "</td>";
-                        echo "<td>" . $row["email"] . "</td>";
                         echo "<td>" . $row["nama_jurusan"] . "</td>";
-                        ?>
-                <td>
-                    <form action="proses/proses_edit.php" method="post" role="form" id="status">
-                        <!-- Add a hidden input field for the 'id' parameter -->
-                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-
-                        <select class="form-select" name="status">
-                            <option selected>Status</option>
-                            <option value="Sedang diproses"
-                                <?php if ($row['status'] == 'Sedang diproses') echo ' selected="selected"'; ?>>Sedang
-                                diproses</option>
-                            <option value="Lolos" <?php if ($row['status'] == 'Lolos') echo ' selected="selected"'; ?>>
-                                Lolos</option>
-                            <option value="Tidak Lolos"
-                                <?php if ($row['status'] == 'Tidak Lolos') echo ' selected="selected"'; ?>>Tidak Lolos
-                            </option>
-                        </select>
-                </td>
-                <?php
+                        echo "<td>" . $row["deskripsi"] . "</td>";
+                        echo "<td>" . $row["nama_koordinator"] . "</td>";
+                        echo "<td>" . $row["email_koordinator"] . "</td>";
+                        echo "<td>" . $row["no_telepon_koordinator"] . "</td>";
                         echo '<td>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>'
-                        ?>
-                <button type="submit" class="btn btn-warning">Edit Status</button>
-                </form>
-                <?php echo '
-                                <a href="proses/proses_hapus.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
-                                </td>';
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>
+                                <a href="editjurusan.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                                <a href="proses/proses_hapusjurusan.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
+                            </td>';
                                 echo "</tr>";
                     }
                 } else {
@@ -174,9 +147,7 @@
     include "koneksi.php";
 
     // Mengambil data untuk modal
-    $queryModal = "SELECT cs.*, j.nama_jurusan
-    FROM tbl_calonsiswa cs
-    LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id";
+    $queryModal = "SELECT * FROM tbl_jurusan";
     $resultModal = $conn->query($queryModal);
 
     if ($resultModal->num_rows > 0) {
@@ -196,16 +167,16 @@
                 <div class="modal-body">
                     <!-- Menampilkan detail data di sini -->
                     <p>ID : <?php echo $rowModal['id']; ?></p>
-                    <p>Nama : <?php echo $rowModal['nama']; ?></p>
-                    <p>Alamat : <?php echo $rowModal['alamat']; ?></p>
-                    <p>Tempat Lahir : <?php echo $rowModal['tempat_lahir']; ?></p>
-                    <p>Tanggal Lahir : <?php echo $rowModal['tanggal_lahir']; ?></p>
-                    <p>Agama : <?php echo $rowModal['agama']; ?></p>
-                    <p>Nomor Telepon : <?php echo $rowModal['no_telepon']; ?></p>
-                    <p>Email : <?php echo $rowModal['email']; ?></p>
-                    <p>Nilai Rata Rata : <?php echo $rowModal['nilai_rata_rata']; ?></p>
-                    <p>Status : <?php echo $rowModal['status']; ?></p>
-                    <p>Jurusan : <?php echo $rowModal['nama_jurusan']; ?></p>
+                    <p>Nama Jurusan : <?php echo $rowModal['nama_jurusan']; ?></p>
+                    <p>Akreditasi : <?php echo $rowModal['akreditasi']; ?></p>
+                    <p>Kapasitas : <?php echo $rowModal['kapasitas']; ?></p>
+                    <p>Biaya SPP : Rp. <?php echo $rowModal['biaya_spp']; ?></p>
+                    <p>Persyaratan : <?php echo $rowModal['persyaratan']; ?></p>
+                    <p>Deskripsi : <?php echo $rowModal['deskripsi']; ?></p>
+                    <p>Nama Koordinator : <?php echo $rowModal['nama_koordinator']; ?></p>
+                    <p>Email Koordinator : <?php echo $rowModal['email_koordinator']; ?></p>
+                    <p>Nomor Telepon Koordinator : <?php echo $rowModal['no_telepon_koordinator']; ?></p>
+                    <p>Kelas Tersedia : <?php echo $rowModal['kelas_tersedia']; ?></p>
 
                     <!-- Tambahkan detail lainnya sesuai kebutuhan -->
                 </div>
