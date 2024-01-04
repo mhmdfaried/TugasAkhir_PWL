@@ -59,7 +59,7 @@
                 include "koneksi.php";
 
                 // Konfigurasi Pagination
-                $limit = 7;
+                $limit = 4;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $start = ($page - 1) * $limit;
 
