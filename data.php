@@ -29,7 +29,7 @@
     <div class=" container mt-5">
         <form action="" method="post" class="mb-3">
             <div class="input-group">
-                <a href="tambah.php" class="btn btn-success">+ Tambahkan Data</a>
+                <a href="pendaftaranadmin.php" class="btn btn-success">+ Tambahkan Data</a>
                 <input type="text" class="form-control" placeholder="Cari menggunakan Nama atau Jenis Kelamin"
                     name="searchTerm">
                 <button class="btn btn-primary" type="submit">Cari</button>
@@ -70,14 +70,16 @@
                     $whereClause = "WHERE nama LIKE '%$searchTerm%' OR jenis_kelamin LIKE '%$searchTerm%'";
                 }
 
-                $query = "SELECT id, nama, alamat, jenis_kelamin, no_telepon, email, jurusan_id 
-                        FROM tbl_calonsiswa
-                        $whereClause
-                        LIMIT $start, $limit";
+                $query = "SELECT cs.id, cs.nama, cs.alamat, cs.jenis_kelamin, cs.no_telepon, cs.email, cs.jurusan_id, j.nama_jurusan
+                FROM tbl_calonsiswa cs
+                LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id
+                $whereClause
+                LIMIT $start, $limit";
+
                 $result = $conn->query($query);
 
                 if ($result === false) {
-                die('Error: ' . $conn->error);
+                    die('Error: ' . $conn->error);
                 }
 
 
@@ -91,7 +93,7 @@
                         echo "<td>" . $row["jenis_kelamin"] . "</td>";
                         echo "<td>" . $row["no_telepon"] . "</td>";
                         echo "<td>" . $row["email"] . "</td>";
-                        echo "<td>" . $row["jurusan_id"] . "</td>";
+                        echo "<td>" . $row["nama_jurusan"] . "</td>";
                         echo '<td>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>
                                 <a href="edit.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
@@ -145,20 +147,20 @@
         ?>
     </div>
 
-
     <?php
-    // Include file koneksi database
     include "koneksi.php";
 
     // Mengambil data untuk modal
-    $queryModal = "SELECT * FROM tbl_calonsiswa";
+    $queryModal = "SELECT cs.*, j.nama_jurusan
+    FROM tbl_calonsiswa cs
+    LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id";
     $resultModal = $conn->query($queryModal);
 
     if ($resultModal->num_rows > 0) {
-        while ($rowModal = $resultModal->fetch_assoc()) {
+    while ($rowModal = $resultModal->fetch_assoc()) {
     ?>
     <!-- Modal untuk menampilkan detail data -->
-    <div class="modal fade" id="detailModal<?php echo $rowModal['id_pembeli']; ?>" tabindex="-1" role="dialog"
+    <div class="modal fade" id="detailModal<?php echo $rowModal['id']; ?>" tabindex="-1" role="dialog"
         aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -170,15 +172,17 @@
                 </div>
                 <div class="modal-body">
                     <!-- Menampilkan detail data di sini -->
-                    <p>ID Pembeli: <?php echo $rowModal['id_pembeli']; ?></p>
-                    <p>Nama: <?php echo $rowModal['nama']; ?></p>
-                    <p>Alamat: <?php echo $rowModal['alamat']; ?></p>
-                    <p>No. Telephone: <?php echo $rowModal['nohp']; ?></p>
-                    <p>Tanggal Transaksi: <?php echo $rowModal['tgl_transaksi']; ?></p>
-                    <p>Jenis Barang: <?php echo $rowModal['jenis_barang']; ?></p>
-                    <p>Nama Barang: <?php echo $rowModal['nama_barang']; ?></p>
-                    <p>Jumlah Barang: <?php echo $rowModal['jumlah']; ?></p>
-                    <p>Harga Barang: <?php echo $rowModal['harga']; ?></p>
+                    <p>ID : <?php echo $rowModal['id']; ?></p>
+                    <p>Nama : <?php echo $rowModal['nama']; ?></p>
+                    <p>Alamat : <?php echo $rowModal['alamat']; ?></p>
+                    <p>Tempat Lahir : <?php echo $rowModal['tempat_lahir']; ?></p>
+                    <p>Tanggal Lahir : <?php echo $rowModal['tanggal_lahir']; ?></p>
+                    <p>Agama : <?php echo $rowModal['agama']; ?></p>
+                    <p>Nomor Telepon : <?php echo $rowModal['no_telepon']; ?></p>
+                    <p>Email : <?php echo $rowModal['email']; ?></p>
+                    <p>Nilai Rata Rata : <?php echo $rowModal['nilai_rata_rata']; ?></p>
+                    <p>Status : <?php echo $rowModal['status']; ?></p>
+                    <p>Jurusan : <?php echo $rowModal['nama_jurusan']; ?></p>
 
                     <!-- Tambahkan detail lainnya sesuai kebutuhan -->
                 </div>

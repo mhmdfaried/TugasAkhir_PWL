@@ -5,37 +5,47 @@ include '../koneksi.php';
 // Tampilkan isi dari $_GET untuk debugging
 var_dump($_GET);
 
-// Memeriksa apakah permintaan adalah metode GET dan apakah parameter 'id_pembeli' telah diset
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id_pembeli'])) {
-    // Mendapatkan nilai ID dari parameter GET
-    $id_pembeli = $_GET['id_pembeli'];
+// Mendapatkan nilai ID dari parameter GET
+$id = $_GET['id'];
 
-    // Menyiapkan pernyataan SQL untuk menghapus data profil berdasarkan ID
-    $sql = "DELETE FROM tbl_faried WHERE id_pembeli = ?";
+// Menyiapkan pernyataan SQL untuk menghapus data dari tbl_orangtua
+$sql_orangtua = "DELETE FROM tbl_orangtua WHERE calonsiswa_id = ?";
+
+// Menyiapkan pernyataan prepared statement untuk tbl_orangtua
+$stmt_orangtua = $conn->prepare($sql_orangtua);
+
+// Bind parameter ke pernyataan prepared statement untuk tbl_orangtua
+$stmt_orangtua->bind_param("i", $id);
+
+// Menjalankan pernyataan prepared statement untuk tbl_orangtua dan menangani kesalahan
+if ($stmt_orangtua->execute()) {
+    // Setelah berhasil menghapus data dari tbl_orangtua, lanjutkan untuk menghapus data dari tbl_calonsiswa
+
+    // Menyiapkan pernyataan SQL untuk menghapus data dari tbl_calonsiswa
+    $sql_calonsiswa = "DELETE FROM tbl_calonsiswa WHERE id = ?";
     
-    // Menyiapkan pernyataan prepared statement
-    $stmt = $conn->prepare($sql);
+    // Menyiapkan pernyataan prepared statement untuk tbl_calonsiswa
+    $stmt_calonsiswa = $conn->prepare($sql_calonsiswa);
 
-    // Bind parameter ke pernyataan prepared statement
-    $stmt->bind_param("i", $id_pembeli);
+    // Bind parameter ke pernyataan prepared statement untuk tbl_calonsiswa
+    $stmt_calonsiswa->bind_param("i", $id);
 
-    // Menjalankan pernyataan prepared statement dan menangani kesalahan
-    if ($stmt->execute()) {
+    // Menjalankan pernyataan prepared statement untuk tbl_calonsiswa dan menangani kesalahan
+    if ($stmt_calonsiswa->execute()) {
         // Jika penghapusan berhasil, arahkan kembali ke halaman utama
-         echo "<script>alert('Data Berhasil Dihapus.');window.location='../data.php';</script>";
+        echo "<script>alert('Data Berhasil Dihapus.');window.location='../data.php';</script>";
         exit(); // Pastikan untuk keluar setelah menggunakan header
     } else {
-        // Jika terjadi kesalahan, tampilkan pesan kesalahan
-        echo "Error: " . $stmt->error;
+        // Jika terjadi kesalahan pada penghapusan tbl_calonsiswa, tampilkan pesan kesalahan
+        echo "Error: " . $stmt_calonsiswa->error;
     }
 
-    // Menutup prepared statement
-    $stmt->close();
+    // Menutup prepared statement untuk tbl_calonsiswa
+    $stmt_calonsiswa->close();
 } else {
-    // Jika parameter 'id_pembeli' tidak valid, tampilkan pesan kesalahan
-    echo "Parameter ID tidak valid.";
+    // Jika terjadi kesalahan pada penghapusan tbl_orangtua, tampilkan pesan kesalahan
+    echo "Error: " . $stmt_orangtua->error;
 }
 
-// Menutup koneksi ke database
-$conn->close();
-?>
+// Menutup prepared statement untuk tbl_orangtua
+$stmt_orangtua->close();
