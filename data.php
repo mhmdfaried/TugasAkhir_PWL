@@ -26,7 +26,7 @@
     </nav>
 
     <!-- Container untuk form pencarian -->
-    <div class=" container mt-5">
+    <div class="container mt-5">
         <form action="" method="post" class="mb-3">
             <div class="input-group">
                 <a href="pendaftaranadmin.php" class="btn btn-success">+ Tambahkan Data</a>
@@ -48,6 +48,7 @@
                     <th class='text-center'>Nomor Telepon</th>
                     <th class='text-center'>Email</th>
                     <th class='text-center'>Jurusan Pilihan</th>
+                    <th class='text-center'>Status</th>
                     <th class='text-center'>Aksi</th>
                 </tr>
             </thead>
@@ -70,7 +71,7 @@
                     $whereClause = "WHERE nama LIKE '%$searchTerm%' OR jenis_kelamin LIKE '%$searchTerm%'";
                 }
 
-                $query = "SELECT cs.id, cs.nama, cs.alamat, cs.jenis_kelamin, cs.no_telepon, cs.email, cs.jurusan_id, j.nama_jurusan
+                $query = "SELECT cs.id, cs.nama, cs.alamat, cs.jenis_kelamin, cs.no_telepon, cs.email, cs.jurusan_id, j.nama_jurusan, cs.status
                 FROM tbl_calonsiswa cs
                 LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id
                 $whereClause
@@ -94,9 +95,34 @@
                         echo "<td>" . $row["no_telepon"] . "</td>";
                         echo "<td>" . $row["email"] . "</td>";
                         echo "<td>" . $row["nama_jurusan"] . "</td>";
+                        ?>
+                <td>
+                    <form action="proses/proses_edit.php" method="post" role="form" id="status">
+                        <!-- Add a hidden input field for the 'id' parameter -->
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+
+                        <select class="form-select" name="status">
+                            <option selected>Status</option>
+                            <option value="Sedang diproses"
+                                <?php if ($row['status'] == 'Sedang diproses') echo ' selected="selected"'; ?>>Sedang
+                                diproses</option>
+                            <option value="Lolos" <?php if ($row['status'] == 'Lolos') echo ' selected="selected"'; ?>>
+                                Lolos</option>
+                            <option value="Tidak Lolos"
+                                <?php if ($row['status'] == 'Tidak Lolos') echo ' selected="selected"'; ?>>Tidak Lolos
+                            </option>
+                        </select>
+
+                        <button type="submit" class="btn btn-warning">Edit Status</button>
+                    </form>
+
+                </td>
+                <?php
                         echo '<td>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>
-                                <a href="edit.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>'
+                                ?>
+                <button type="submit" class="btn btn-warning">Edit Status</button>
+                <?php echo '
                                 <a href="proses/proses_hapus.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
                             </td>';
                         echo "</tr>";
