@@ -47,10 +47,12 @@
         include "koneksi.php";
 
         // Ambil id_pembeli dari parameter URL
+
         $id = $_GET["id"];
 
         // Query untuk mendapatkan data sesuai id_pembeli
         $query = "SELECT * FROM tbl_calonsiswa WHERE id='$id'";
+
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {

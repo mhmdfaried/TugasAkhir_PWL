@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nilai_b_indonesia = $_POST['nilai_b_indonesia'];
     $nilai_b_inggris = $_POST['nilai_b_inggris'];
     $nilai_agama = $_POST['nilai_agama'];
-
+    $status = 'sedang proses';
     // Hitung total nilai dan rata-rata
     $total_nilai = $nilai_matematika + $nilai_ipa + $nilai_ips + $nilai_b_indonesia + $nilai_b_inggris + $nilai_agama;
     $nilai_rata_rata = $total_nilai / 6;
 
     // Simpan data calon siswa ke dalam tabel calon_siswa
-    $sql_insert_calon_siswa = "INSERT INTO tbl_calonsiswa (nama, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, no_telepon, email, nilai_rata_rata,jurusan_id) 
-    VALUES ('$nama', '$alamat', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$no_telepon', '$email', '$nilai_rata_rata', '$jurusan')";
+    $sql_insert_calon_siswa = "INSERT INTO tbl_calonsiswa (nama, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, no_telepon, email, nilai_rata_rata, status,jurusan_id) 
+    VALUES ('$nama', '$alamat', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama', '$no_telepon', '$email', '$nilai_rata_rata','$status', '$jurusan')";
     // Eksekusi query
     mysqli_query($conn, $sql_insert_calon_siswa);
 
