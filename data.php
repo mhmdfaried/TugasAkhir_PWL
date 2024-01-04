@@ -113,15 +113,13 @@
                             </option>
                         </select>
 
-                        <button type="submit" class="btn btn-warning">Edit Status</button>
-                    </form>
-
                 </td>
                 <?php
                         echo '<td>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>'
-                                ?>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal' . $row["id"] . '" class="btn btn-info">Selengkapnya</a>'
+                        ?>
                 <button type="submit" class="btn btn-warning">Edit Status</button>
+                </form>
                 <?php echo '
                                 <a href="proses/proses_hapus.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
                             </td>';
