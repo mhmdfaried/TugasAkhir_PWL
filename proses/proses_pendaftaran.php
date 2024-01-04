@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nilai_b_indonesia = $_POST['nilai_b_indonesia'];
     $nilai_b_inggris = $_POST['nilai_b_inggris'];
     $nilai_agama = $_POST['nilai_agama'];
-    $status = 'sedang proses';
+    $status = 'Sedang diproses';
     // Hitung total nilai dan rata-rata
     $total_nilai = $nilai_matematika + $nilai_ipa + $nilai_ips + $nilai_b_indonesia + $nilai_b_inggris + $nilai_agama;
     $nilai_rata_rata = $total_nilai / 6;
