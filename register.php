@@ -38,7 +38,7 @@
                 <p class="fs-4 justify-content-start fw-0">Selamat Datang! Silahkan daftarkan akun anda</p>
             </div>
             <div class="form m-0 container">
-                <form action="proses/proses_login.php" method="post" role="form">
+                <form action="proses/proses_regis.php" method="post" role="form">
                     <div class="form-group">
                         <div class="row m-0">
                             <div class="col-6">
