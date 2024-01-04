@@ -21,15 +21,19 @@
 
 <body>
     <header class="fixed">
-        <nav class="navbar">
-            <div class="container">
-                <img src="img/img1.png" width="50" height="50" alt="">
-                <div class="menu">
-                    <ul>
-                        <li><a href="proses/proses_logout.php"
-                                onclick="return confirm('Anda yakin ingin keluar?');">Logout</a></li>
-                    </ul>
-                </div>
+        <nav class="topnav">
+            <div class="logo"><img src="img/logo1.png" alt="logo" /></div>
+            <div class="menu d-flex justify-content-end" id="myTopnav">
+                <a href="index.php">Beranda</a>
+                <a href="index.php#tentangkami">Tentang Kami</a>
+                <a href="index.php#major">Program Keahlian</a>
+                <a href="index.php#gallery">Galeri</a>
+                <a href="index.php#contact">Kontak Kami</a>
+                <a href="pendaftaran.php">Pendaftaran</a>
+                <a href="login.php">Login</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </nav>
     </header>
@@ -38,20 +42,36 @@
         <div class="">
             <div class="header-home">
                 <div class="regis-form">
-                    <h1>PENDAFTARAN</h1>
+                    <?php
+        // Menghubungkan dengan database
+        include "koneksi.php";
+
+        // Ambil id_pembeli dari parameter URL
+        $id = $_GET["id"];
+
+        // Query untuk mendapatkan data sesuai id_pembeli
+        $query = "SELECT * FROM tbl_calonsiswa WHERE id='$id'";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            // Mengambil data dari hasil query
+            $row = $result->fetch_assoc();
+        ?>
+                    <h1>EDIT DATA CALON SISWA</h1>
                     <!-- FORM PEMBUKA -->
-                    <form class="" action="proses/proses_pendaftaranadmin.php" method="post" role="form">
+                    <form action="proses/proses_edit.php" method="post" role="form">
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
                                     <!-- Personal Information -->
                                     <div class="col-md-12">
                                         <div class="input-group">
+                                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-person"></i></span>
                                             <input type="text" class="form-control" name="nama"
-                                                placeholder="Nama Lengkap" aria-label="Username"
-                                                aria-describedby="basic-addon1">
+                                                value="<?php echo $row['nama']; ?>" placeholder="Nama Lengkap"
+                                                aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -91,12 +111,12 @@
                                     <div class="col-4">
                                         <select class="form-select" name="agama">
                                             <option selected>Agama</option>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Protestan">Protestan</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Budha">Budha</option>
-                                            <option value="Hindhu">Hindhu</option>
-                                            <option value="Konghucu">Konghucu</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="protestan">Protestan</option>
+                                            <option value="katolik">Katolik</option>
+                                            <option value="budha">Budha</option>
+                                            <option value="hindhu">Hindhu</option>
+                                            <option value="konghucu">Konghucu</option>
                                         </select>
                                     </div>
                                     <div class="col-4">
@@ -241,11 +261,19 @@
                         <br />
                         <div class="row">
                             <div class="btn-primary">
-                                <a href="data.php" class="col-6">Batalkan</a>
+                                <a href="index.php" class="col-6">Batalkan</a>
                                 <button type="submit" class="col-6">Simpan</button>
                             </div>
                         </div>
                     </form>
+                    <?php
+        } else {
+            echo "Data not found.";
+        }
+
+        // Menutup koneksi ke database
+        $conn->close();
+        ?>
                     <!-- FORM PENUTUP -->
                 </div>
             </div>

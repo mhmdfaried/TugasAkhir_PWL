@@ -95,12 +95,12 @@
                                     <div class="col-4">
                                         <select class="form-select" name="agama">
                                             <option selected>Agama</option>
-                                            <option value="islam">Islam</option>
-                                            <option value="protestan">Protestan</option>
-                                            <option value="katolik">Katolik</option>
-                                            <option value="budha">Budha</option>
-                                            <option value="hindhu">Hindhu</option>
-                                            <option value="konghucu">Konghucu</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Protestan">Protestan</option>
+                                            <option value="Katolik">Katolik</option>
+                                            <option value="Budha">Budha</option>
+                                            <option value="Hindhu">Hindhu</option>
+                                            <option value="Konghucu">Konghucu</option>
                                         </select>
                                     </div>
                                     <div class="col-4">
