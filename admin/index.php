@@ -16,7 +16,7 @@
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
@@ -47,7 +47,7 @@
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link text-white active" href="./index.php">
+            <a class="nav-link text-white " href="./index.php">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">dashboard</i>
               </div>
@@ -57,22 +57,22 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-white" href="./tables.html">
+            <a class="nav-link text-white active" href="./index.php">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">group</i>
               </div>
 
-              <span class="nav-link-text ms-1">Tables</span>
+              <span class="nav-link-text ms-1">Data Calon Siswa</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-white" href="./billing.html">
+            <a class="nav-link text-white" href="./jurusan.php">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">receipt_long</i>
+              <i class="material-icons opacity-10">badge</i>
               </div>
 
-              <span class="nav-link-text ms-1">Billing</span>
+              <span class="nav-link-text ms-1">Jurusan</span>
             </a>
           </li>
 
@@ -86,15 +86,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./rtl.html">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
-              </div>
-
-              <span class="nav-link-text ms-1">RTL</span>
-            </a>
-          </li>
+  
 
           <li class="nav-item">
             <a class="nav-link text-white" href="./notifications.html">
@@ -106,40 +98,7 @@
             </a>
           </li>
 
-          <li class="nav-item mt-3">
-            <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./profile.html">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-
-              <span class="nav-link-text ms-1">Profile</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./sign-in.html">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">login</i>
-              </div>
-
-              <span class="nav-link-text ms-1">Sign In</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./sign-up.html">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">assignment</i>
-              </div>
-
-              <span class="nav-link-text ms-1">Sign Up</span>
-            </a>
-          </li>
-        </ul>
+         
       </div>
     </aside>
 
@@ -151,15 +110,16 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">dasboard</li>
+              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Data Calon Siswa</li>
             </ol>
-            <h6 class="font-weight-bolder mb-0">dashboard</h6>
+            <h6 class="font-weight-bolder mb-0">Data Calon Siswa</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
               <div class="input-group input-group-outline">
-                <label class="form-label">Type here...</label>
-                <input type="text" class="form-control" />
+                <form id="searchForm" method="post">
+                <input type="text" name="searchTerm" class="form-control" id="searchInput"  placeholder="Type here..."/>
+                </form>
               </div>
             </div>
             <ul class="navbar-nav justify-content-end">
@@ -180,7 +140,7 @@
               </li>
              
               <li class="nav-item d-flex align-items-center">
-                <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                <a href="./proses/proses_logout.php" class="nav-link text-body font-weight-bold px-0">
                   <i class="fa fa-user me-sm-1"></i>
 
                   <span class="d-sm-inline d-none">Logout</span>
@@ -192,244 +152,172 @@
       </nav>
 
       <!-- End Navbar -->
+   
 
       <div class="container-fluid py-4">
         <div class="row">
-          <div class="col-lg-7 position-relative z-index-2">
+          <div class="col-lg-12 position-relative z-index-2">
             <div class="card card-plain mb-4">
               <div class="card-body p-3">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="d-flex flex-column h-100">
-                      <h2 class="font-weight-bolder mb-0">General Statistics</h2>
+                      <h2 class="font-weight-bolder mb-0">Data Calon Siswa</h2>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-5 col-sm-5">
-                <div class="card mb-2">
-                  <div class="card-header p-3 pt-2">
-                    <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
-                      <i class="material-icons opacity-10">weekend</i>
-                    </div>
-                    <div class="text-end pt-1">
-                      <p class="text-sm mb-0 text-capitalize">Bookings</p>
-                      <h4 class="mb-0">281</h4>
-                    </div>
-                  </div>
-
-                  <hr class="dark horizontal my-0" />
-                  <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
-                  </div>
-                </div>
-
-                <div class="card mb-2">
-                  <div class="card-header p-3 pt-2">
-                    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
-                      <i class="material-icons opacity-10">leaderboard</i>
-                    </div>
-                    <div class="text-end pt-1">
-                      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-                      <h4 class="mb-0">2,300</h4>
-                    </div>
-                  </div>
-
-                  <hr class="dark horizontal my-0" />
-                  <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
-                <div class="card mb-2">
-                  <div class="card-header p-3 pt-2 bg-transparent">
-                    <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                      <i class="material-icons opacity-10">store</i>
-                    </div>
-                    <div class="text-end pt-1">
-                      <p class="text-sm mb-0 text-capitalize">Revenue</p>
-                      <h4 class="mb-0">34k</h4>
-                    </div>
-                  </div>
-
-                  <hr class="horizontal my-0 dark" />
-                  <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+1% </span>than yesterday</p>
-                  </div>
-                </div>
-
-                <div class="card">
-                  <div class="card-header p-3 pt-2 bg-transparent">
-                    <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                      <i class="material-icons opacity-10">person_add</i>
-                    </div>
-                    <div class="text-end pt-1">
-                      <p class="text-sm mb-0 text-capitalize">Followers</p>
-                      <h4 class="mb-0">+91</h4>
-                    </div>
-                  </div>
-
-                  <hr class="horizontal my-0 dark" />
-                  <div class="card-footer p-3">
-                    <p class="mb-0">Just updated</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="row mt-4">
-              <div class="col-10">
+              <div class="col-12">
                 <div class="card mb-4">
                   <div class="d-flex">
                     <div class="icon icon-shape icon-lg bg-gradient-success shadow text-center border-radius-xl mt-n3 ms-4">
-                      <i class="material-icons opacity-10" aria-hidden="true">language</i>
+                    <i class="material-icons opacity-10">group</i>
                     </div>
-                    <h6 class="mt-3 mb-2 ms-3">Sales by Country</h6>
+                    <h6 class="mt-3 mb-2 ms-3">Data Siswa</h6>
                   </div>
                   <div class="card-body p-3">
                     <div class="row">
-                      <div class="col-lg-6 col-md-7">
+                      <div class="col-lg-12 col-md-7">
                         <div class="table-responsive">
                           <table class="table align-items-center">
+                            <thead>
+                              <tr>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Nama Siswa</th>
+                                <th class="text-center">Nomor telepon</th>
+                                <th class="text-center">Jurusan dipilih</th>
+                                <th class="text-center">Nilai Rata-rata</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
+                              </tr>
+                            </thead>
                             <tbody>
-                              <tr>
-                                <td class="w-30">
-                                  <div class="d-flex px-2 py-1 align-items-center">
-                                    <div>
-                                      <img src="./assets/img/icons/flags/US.png" alt="Country flag" />
-                                    </div>
-                                    <div class="ms-4">
-                                      <p class="text-xs font-weight-bold mb-0">Country:</p>
-                                      <h6 class="text-sm font-weight-normal mb-0">United States</h6>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">2500</h6>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Value:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">$230,900</h6>
-                                  </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                  <div class="col text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">29.9%</h6>
-                                  </div>
-                                </td>
-                              </tr>
+                            <?php 
+                            include "../koneksi.php";
+                            $limit = 4;
+                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $start = ($page - 1) * $limit;
 
-                              <tr>
-                                <td class="w-30">
-                                  <div class="d-flex px-2 py-1 align-items-center">
-                                    <div>
-                                      <img src="./assets/img/icons/flags/DE.png" alt="Country flag" />
-                                    </div>
-                                    <div class="ms-4">
-                                      <p class="text-xs font-weight-bold mb-0">Country:</p>
-                                      <h6 class="text-sm font-weight-normal mb-0">Germany</h6>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">3.900</h6>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Value:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">$440,000</h6>
-                                  </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                  <div class="col text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">40.22%</h6>
-                                  </div>
-                                </td>
-                              </tr>
+                            // Query untuk mengambil data dengan pagination dan kata kunci pencarian
+                            $searchTerm = isset($_POST['searchTerm']) ? $_POST['searchTerm'] : '';
+                            $whereClause = '';
 
-                              <tr>
-                                <td class="w-30">
-                                  <div class="d-flex px-2 py-1 align-items-center">
-                                    <div>
-                                      <img src="./assets/img/icons/flags/GB.png" alt="Country flag" />
-                                    </div>
-                                    <div class="ms-4">
-                                      <p class="text-xs font-weight-bold mb-0">Country:</p>
-                                      <h6 class="text-sm font-weight-normal mb-0">Great Britain</h6>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">1.400</h6>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Value:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">$190,700</h6>
-                                  </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                  <div class="col text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">23.44%</h6>
-                                  </div>
-                                </td>
-                              </tr>
+                            if (!empty($searchTerm)) {
+                                $whereClause = "WHERE nama LIKE '%$searchTerm%' OR status LIKE '%$searchTerm%'";
+                            }
 
+                            $query = "SELECT cs.id, cs.nama, cs.alamat, cs.jenis_kelamin, cs.no_telepon,cs.nilai_rata_rata, cs.email,cs.status, cs.jurusan_id, j.nama_jurusan
+                            FROM tbl_calonsiswa cs
+                            LEFT JOIN tbl_jurusan j ON cs.jurusan_id = j.id
+                            $whereClause
+                            LIMIT $start, $limit";
+
+                            $result = $conn->query($query);
+                            if ($result === false) {
+                              die('Error: ' . $conn->error);
+                          }
+                          if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                              echo ("
                               <tr>
-                                <td class="w-30">
-                                  <div class="d-flex px-2 py-1 align-items-center">
-                                    <div>
-                                      <img src="./assets/img/icons/flags/BR.png" alt="Country flag" />
-                                    </div>
-                                    <div class="ms-4">
-                                      <p class="text-xs font-weight-bold mb-0">Country:</p>
-                                      <h6 class="text-sm font-weight-normal mb-0">Brasil</h6>
-                                    </div>
+                                <td>
+                                  <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['id']}</h6>
                                   </div>
                                 </td>
                                 <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">562</h6>
+                                  <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['nama']}</h6>
                                   </div>
                                 </td>
                                 <td>
-                                  <div class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Value:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">$143,960</h6>
+                                  <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['no_telepon']}</h6>
                                   </div>
                                 </td>
-                                <td class="align-middle text-sm">
-                                  <div class="col text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                                    <h6 class="text-sm font-weight-normal mb-0">32.14%</h6>
+                                <td class='align-middle text-sm'>
+                                  <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['nama_jurusan']}</h6>
                                   </div>
                                 </td>
+                                <td class='align-middle text-sm'>
+                                  <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['nilai_rata_rata']}</h6>
+                                  </div>
+                                </td>
+                                <td class='align-middle text-sm'>
+                                <div class='col text-center'>
+                                    <form action='proses/proses_edit.php' method='post' role='form' id='status'>
+                                        <input type='hidden' name='id' value='{$row['id']}'>
+                                        <select class='form-select' name='status' style='border: none'>
+                                            <option value='' disabled selected>Status</option>
+                                            <option value='Sedang diproses'" . ($row['status'] == 'Sedang diproses' ? ' selected' : '') . ">Sedang diproses</option>
+                                            <option value='Lolos'" . ($row['status'] == 'Lolos' ? ' selected' : '') . ">Lolos</option>
+                                            <option value='Tidak Lolos'" . ($row['status'] == 'Tidak Lolos' ? ' selected' : '') . ">Tidak Lolos</option>
+                                        </select>
+                                </div>
+                            </td>
+                                <td class='align-middle text-sm'>
+                                <div class='col text-center'>
+                                  <a href='proses/proses_hapus.php?id={$row['id']}' class='btn btn-danger'><i class='bi bi-trash3'></i></a>
+                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success'><i class='bi bi-info-circle'></i></a>
+                                  <button type='submit' class='btn btn-warning'><i class='bi bi-pen'></i></button>
+                                  </form>
+                                </div>
+                              </td>
                               </tr>
+                              ");
+                            }
+                          } else {
+                              // Menampilkan pesan jika data tidak ditemukan
+                              echo "<tr><td class='text-center' colspan='7'>Data not found.</td></tr>";
+                          }
+                         
+                          
+                          $conn->close();
+                            ?>
                             </tbody>
                           </table>
+                     
+                          <!-- Pagination -->
+                      <?php
+                      // Include file koneksi database
+                      include "../koneksi.php";
+
+                      // Query untuk mendapatkan total data
+                      $queryTotal = "SELECT COUNT(id) as total FROM tbl_calonsiswa";
+                      $resultTotal = $conn->query($queryTotal);
+                      $dataTotal = $resultTotal->fetch_assoc();
+                      $totalPages = ceil($dataTotal['total'] / $limit);
+
+                      // Menentukan halaman saat ini
+                      $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                      // Menampilkan tombol "Previous" jika halaman saat ini lebih dari 1
+                      echo '<ul class="pagination justify-content-center">';
+                      if ($current_page > 1) {
+                          echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page - 1) . '"><</a></li>';
+                      }
+
+                      // Menampilkan nomor-nomor halaman
+                      for ($i = 1; $i <= $totalPages; $i++) {
+                        echo '<li class="page-item ' . ($current_page == $i ? 'active' : '') . '"><a class="page-link text-white" href="?page=' . $i . '">' . $i . '</a></li>';
+                      }
+                      // Menampilkan tombol "Next" jika halaman saat ini kurang dari total halaman
+                      if ($current_page < $totalPages) {
+                          echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page + 1) . '">></a></li>';
+                      }
+
+                      echo '</ul>';
+
+                      $conn->close();
+                      ?>
                         </div>
                       </div>
-                      <div class="col-lg-6 col-md-5">
-                        <div id="map" class="mt-0 mt-lg-n4"></div>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -438,132 +326,8 @@
           </div>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-lg-5 mb-lg-0 mb-4">
-            <div class="card z-index-2 mt-4">
-              <div class="card-body mt-n5 px-3">
-                <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1 mb-3">
-                  <div class="chart">
-                    <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                  </div>
-                </div>
-                <h6 class="ms-2 mt-4 mb-0">Active Users</h6>
-                <p class="text-sm ms-2">(<span class="font-weight-bolder">+11%</span>) than last week</p>
-                <div class="container border-radius-lg">
-                  <div class="row">
-                    <div class="col-3 py-3 ps-0">
-                      <div class="d-flex mb-2">
-                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
-                          <i class="material-icons opacity-10">groups</i>
-                        </div>
-                        <p class="text-xs my-auto font-weight-bold">Users</p>
-                      </div>
-                      <h4 class="font-weight-bolder">42K</h4>
-                      <div class="progress w-75">
-                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                    <div class="col-3 py-3 ps-0">
-                      <div class="d-flex mb-2">
-                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
-                          <i class="material-icons opacity-10">ads_click</i>
-                        </div>
-                        <p class="text-xs mt-1 mb-0 font-weight-bold">Clicks</p>
-                      </div>
-                      <h4 class="font-weight-bolder">1.7m</h4>
-                      <div class="progress w-75">
-                        <div class="progress-bar bg-dark w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                    <div class="col-3 py-3 ps-0">
-                      <div class="d-flex mb-2">
-                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
-                          <i class="material-icons opacity-10">receipt</i>
-                        </div>
-                        <p class="text-xs mt-1 mb-0 font-weight-bold">Sales</p>
-                      </div>
-                      <h4 class="font-weight-bolder">399$</h4>
-                      <div class="progress w-75">
-                        <div class="progress-bar bg-dark w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                    <div class="col-3 py-3 ps-0">
-                      <div class="d-flex mb-2">
-                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-danger text-center me-2 d-flex align-items-center justify-content-center">
-                          <i class="material-icons opacity-10">category</i>
-                        </div>
-                        <p class="text-xs mt-1 mb-0 font-weight-bold">Items</p>
-                      </div>
-                      <h4 class="font-weight-bolder">74</h4>
-                      <div class="progress w-75">
-                        <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="card z-index-2">
-              <div class="card-header pb-0">
-                <h6>Sales overview</h6>
-                <p class="text-sm">
-                  <i class="fa fa-arrow-up text-success"></i>
-                  <span class="font-weight-bold">4% more</span> in 2021
-                </p>
-              </div>
-              <div class="card-body p-3">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <div id="globe" class="position-absolute end-0 top-10 mt-sm-3 mt-7 me-lg-7">
-              <canvas width="700" height="600" class="w-lg-100 h-lg-100 w-75 h-75 me-lg-0 me-n10 mt-lg-5"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <footer class="footer py-4">
-          <div class="container-fluid">
-            <div class="row align-items-center justify-content-lg-between">
-              <div class="col-lg-6 mb-lg-0 mb-4">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , made with <i class="fa fa-heart"></i> by
-                  <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                  for a better web.
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
+      
+      
     </main>
 
     <div class="fixed-plugin">
@@ -573,7 +337,7 @@
       <div class="card shadow-lg">
         <div class="card-header pb-0 pt-3">
           <div class="float-start">
-            <h5 class="mt-3 mb-0">Set option Dashboard</h5>
+            <h5 class="mt-3 mb-0">Material UI Configurator</h5>
             <p>See our dashboard options.</p>
           </div>
           <div class="float-end mt-4">
@@ -633,10 +397,66 @@
           </div>
           <hr class="horizontal dark my-sm-4" />
 
+         
         </div>
       </div>
     </div>
-
+    <?php 
+      include "../koneksi.php";
+      $result = mysqli_query($conn, "SELECT * FROM tbl_orangtua JOIN tbl_calonsiswa ON tbl_orangtua.calonsiswa_id = tbl_calonsiswa.id ");
+      while ($d = mysqli_fetch_assoc($result)) {
+          echo "
+          <div class='modal fade' id='staticBackdrop{$d['id']}' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+              <div class='modal-dialog' style='max-width: 1000px;'>
+                  <div class='modal-content'>
+                      <div class='modal-header d-flex justify-content-center bg-dark text-white'>
+                          <h1 class='modal-title fs-3 text-white'>Data Calon Siswa</h1>
+                      </div>
+                      <div class='modal-body'>
+                          <div class='row'>
+                              <div class='col-md-6'>
+                                  <div class='card mb-3'>
+                                      <div class='card-header bg-white text-center fs-5 fw-bold'>Data Siswa</div>
+                                      <div class='card-body'>
+                                          <p class='card-text'>Nama: {$d['nama']}</p>
+                                          <p class='card-text'>Alamat: {$d['alamat']}</p>
+                                          <p class='card-text'>Nomor Telepon : {$d['no_telepon']}</p>
+                                          <p class='card-text'>tempat Lahir: {$d['tempat_lahir']}</p>
+                                          <p class='card-text'>Tanggal Lahir: {$d['tanggal_lahir']}</p>
+                                          <p class='card-text'>Nilai Rata-rata: {$d['nilai_rata_rata']}</p>
+                                          <p class='card-text'>Status: {$d['status']}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class='col-md-6'>
+                                  <div class='card mb-3'>
+                                      <div class='card-header bg-white text-center fs-5 fw-bold'>Data Orangtua</div>
+                                      <div class='card-body'>
+                                          <p class='card-text'>Nama Ayah: {$d['nama_ayah']}</p>
+                                          <p class='card-text'>Pekerjaan Ayah: {$d['pekerjaan_ayah']}</p>
+                                          <p class='card-text'>Pendidikah Ayah: {$d['pendidikan_ayah']}</p>
+                                          <p class='card-text'>Nama Ibu: {$d['nama_ibu']}</p>
+                                          <p class='card-text'>Pekerjaan Ibu: {$d['pekerjaan_ibu']}</p>
+                                          <p class='card-text'>Pendidikah Ibu: {$d['pendidikan_ibu']}</p>
+                                          <p class='card-text'>Nomor Telepon Orangtua: {$d['no_teleponortu']}</p>
+                                          <p class='card-text'>Penghasilan: {$d['penghasilan']}</p>
+                                          <p class='card-text'>Alamat Orangtua: {$d['alamat_ortu']}</p>
+                                          <!-- Tambahkan data lainnya sesuai kebutuhan -->
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class='modal-footer'>
+                          <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>";
+          }
+          $conn->close();
+          ?>  
+      
     <!--   Core JS Files   -->
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
@@ -652,7 +472,14 @@
         Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
       }
     </script>
-
+  <script>
+      document.getElementById("searchInput").addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+              document.getElementById("searchForm").submit();
+          }
+      });
+  </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
