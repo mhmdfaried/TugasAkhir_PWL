@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <?php include('bootstrap/header.php'); ?>
+        <?php include('bootstrap/header.php'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/logo2.png" />
     <link rel="stylesheet" href="css/main.css" />
@@ -19,36 +19,34 @@
 
 <body>
     <style>
-    .modal {
-        position: fixed;
+        .modal {
+            position: fixed;
         z-index: 5000;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    #home {
-        width: 100%;
-        background-color: #0a4d68;
-        background-image: linear-gradient(rgba(44, 62, 80, 0.6),
-                rgba(248, 241, 234, 0.33)),
+        }
+        #home{
+            width: 100%;
+            background-color: #0a4d68;
+            background-image: linear-gradient(
+                rgba(44, 62, 80, 0.6),
+                rgba(248, 241, 234, 0.33)
+            ),
             url("img/img3.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .button-container {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+       
+        .button-container {
         display: flex;
-        justify-content: center;
-        /* membuat tombol berada di tengah secara horizontal */
-        margin-top: 10px;
-        /* jarak antara teks dan tombol */
+        justify-content: center; /* membuat tombol berada di tengah secara horizontal */
+        margin-top: 10px; /* jarak antara teks dan tombol */
     }
 
     .button-container button {
-        margin: 0 5px;
-        /* jarak antara tombol satu dengan yang lain */
+        margin: 0 5px; /* jarak antara tombol satu dengan yang lain */
     }
     </style>
     <header class="fixed ">
@@ -126,11 +124,11 @@
     </section>
 
     <section id="major">
-        <div class="our-major">
-            <br /><br /><br />
-            <h1>PROGRAM KEAHLIAN</h1>
-            <div class="deskripsi-major grid-container grid-column-major">
-                <?php 
+    <div class="our-major">
+        <br /><br /><br />
+        <h1>PROGRAM KEAHLIAN</h1>
+        <div class="deskripsi-major grid-container grid-column-major">
+            <?php 
             include ('koneksi.php');
             $result = mysqli_query($conn, "SELECT * FROM tbl_jurusan");
             while ($d = mysqli_fetch_assoc($result)) {
@@ -143,8 +141,8 @@
                     <p>{$d['deskripsi']}</p>
                 </div>";
             }
-            ?>
-                <?php 
+            ?> 
+            <?php 
             $result = mysqli_query($conn, "SELECT * FROM tbl_jurusan");
             while ($d = mysqli_fetch_assoc($result)) {
                 $biaya_spp_in_rupiah = number_format($d['biaya_spp'], 0, ',', '.');
@@ -207,14 +205,14 @@
                     </div>
                 </div>";
             }
-        ?>
-            </div>
-
-
+        ?> 
         </div>
-    </section>
 
-    <!-- MODAL PENUTUP -->
+        
+    </div>
+</section>
+
+<!-- MODAL PENUTUP -->
     <section id="gallery">
         <div class="our-gallery">
             <br /><br /><br />
@@ -278,6 +276,5 @@
 <script src="script.js" lang="javascript"></script>
 <?php 
 include('bootstrap/footer.php');
-?>
-
+?> 
 </html>
