@@ -238,9 +238,8 @@
                                   </div>
                                 </td>
                                 <td class='align-middle text-sm'>
-                                <div class='col text-center'>
-                                  <a href='proses/proses_hapusjurusan.php?id={$row['id']}' class='btn btn-danger'><i class='bi bi-trash3'></i></a>
-                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success'><i class='bi bi-info-circle'></i></a>
+                                <div class='col text-center justify-content-center d-flex'>
+                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success me-2'><i class='bi bi-info-circle'></i></a>
                                   <a data-bs-toggle='modal' data-bs-target='#staticBackdrop1{$row['id']}' class='btn btn-warning'><i class='bi bi-pen'></i></a>
                                 </div>
                               </td>
@@ -470,7 +469,7 @@
                 <div class='modal-header bg-dark justify-content-center d-flex'>
                 <h1 class='modal-title fs-3 text-white' id='staticBackdropLabel'>Edit Jurusan</h1>
                 </div>
-                    <form action='proses/proses_editjurusan.php' method='post' role='form'>
+                    <form action='proses/proses_editjurusan.php' method='post' role='form' id='editForm_{$d['id']}'>
                         <div class='modal-body'>
                           <div class='form-group'>
                             <div class='row'>
@@ -521,7 +520,7 @@
 
                             <div class='modal-footer'>
                                 <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Close</button>
-                                <button type='submit' class='btn btn-success' data-bs-dismiss='modal'>Submit</button>
+                                <a onClick='editConfirmation({$d['id']})' class='btn btn-success' data-bs-dismiss='modal'>Submit</a>
                             </div>
                             </form>
                         </div>
@@ -550,6 +549,25 @@
                 if (result.isConfirmed) {
                     // Lakukan submit formulir jika konfirmasi diterima
                     document.getElementById('logoutForm').submit();
+                }
+            });
+        }
+       
+    </script>
+     <script>
+        function editConfirmation(id) {
+            Swal.fire({
+                title: 'Konfirmasi Mengubah',
+                text: 'Anda yakin ingin Mengubah ini?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Mengubah'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Lakukan submit formulir jika konfirmasi diterima
+                    document.getElementById('editForm_'+ id).submit();
                 }
             });
         }

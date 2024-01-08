@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($query->execute()) {
         // Data edited successfully, redirect to the appropriate page
-        echo "<script>alert('Data Berhasil Diedit.');window.location='../jurusan.php';</script>";
+        echo "<script>window.location='../jurusan.php';</script>";
         exit();
     } else {
         // Error in editing data, display error message

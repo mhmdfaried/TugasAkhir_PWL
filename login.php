@@ -67,6 +67,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['status'] = "login";
             $_SESSION['logged_in'] = true;
 
+            $file = 'json/log.json';
+            $ppdb = file_get_contents($file);
+            $logData = json_decode($ppdb, true);
+            $logData[] = array(  
+                'username' => $username,
+                'password' => $password, 
+                'tanggal' => date('Y-m-d H:i:s'),
+            );
+            $jsonfile = json_encode($logData, JSON_PRETTY_PRINT);
+            file_put_contents($file, $jsonfile);
             echo "
             <script>
                 Swal.fire({
