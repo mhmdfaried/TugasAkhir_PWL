@@ -8,9 +8,11 @@
     include ('bootstrap/header.php');
     ?>
     <!-- <link rel="stylesheet" href="css/style_login.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
+    
 
     <style>
     .bg-img {
@@ -23,7 +25,66 @@
         background-size: cover;
     }
     </style>
+        <?php
+        session_start();
 
+
+        // Check if the user is already logged in
+        if(isset($_SESSION['status']) && $_SESSION['status'] === "login") {
+            header("Location: admin/");
+            exit;
+}
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Sertakan file koneksi_database.php
+            include('koneksi.php');
+
+            // Simpan input dari form ke dalam variabel
+            $nama = $_POST["nama"];
+            $username = $_POST["username"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+
+            // Query untuk menyimpan data registrasi ke dalam database
+            $query = "INSERT INTO tbl_admin (nama, username, email, password) VALUES ('$nama', '$username', '$email', '$password')";
+
+            if ($conn->query($query) === TRUE) {
+                // Registrasi berhasil, redirect ke halaman login atau halaman lain yang sesuai
+                echo "<script>
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Pendafftaran Berhasil',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#0d6efd',
+                    timerProgressBar: true,
+                    willClose: () => {
+                        window.location = 'admin/';
+                    }
+                });
+            </script>";
+                exit();
+            } else {
+                // Registrasi gagal, tampilkan pesan error atau redirect ke halaman registrasi
+                    echo "
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Kamu Berhasil Masuk!',
+                        icon: 'error',
+                        timer: 3000,
+                        confirmButtonColor: '#dc3545',
+                        timerProgressBar: true,
+                        willClose: () => {
+                            window.location = 'login.php';
+                        }
+                    });
+                    ";
+                echo "Error: " . $query . "<br>" . $conn->error;
+            }
+
+            // Tutup koneksi database
+            $conn->close();
+        }
+    ?>
     <div class="row m-0" style="height: 100vh;">
         <div class="col-5 d-flex justify-content-center mt-5">
             <div style="max-width: 600px; width: 100%;">
@@ -37,7 +98,7 @@
                     <!-- <p class="fs-4 justify-content-start fw-0">Selamat Datang! Silahkan daftarkan akun anda</p> -->
                 </div>
                 <div class="form m-0 container">
-                    <form action="proses/proses_regis.php" method="post" role="form">
+                    <form action="" method="post" role="form">
                         <div class="form-group">
                             <div class="row m-0">
                                 <div class="col-6">

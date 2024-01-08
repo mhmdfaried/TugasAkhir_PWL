@@ -35,7 +35,7 @@ if ($stmt_orangtua->execute()) {
         // Jika penghapusan berhasil, arahkan kembali ke halaman utama
         echo ('
         <script>
-            window.location = "../testing.php";
+            window.location = "../index.php";
         </script>
         ');
         exit(); // Pastikan untuk keluar setelah menggunakan header

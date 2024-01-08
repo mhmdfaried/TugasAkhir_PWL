@@ -1,22 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="icon" type="image/png" href="img/logo2.png" />
     <title>HALAMAN LOGIN ADMIN</title>
-    <?php
-    session_start();
-
-    // Check if the user is already logged in
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-        // Redirect to another page (e.g., dashboard or home)
-        header("Location: ./admin/");
-        exit();
-    }
-
+    <?php 
     include ('bootstrap/header.php');
-?>
-
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <link rel="stylesheet" href="css/style_login.css"> -->
 </head>
 
@@ -33,7 +25,81 @@
         background-size: cover;
     }
     </style>
+<?php
+session_start();
 
+// Check if the user is already logged in
+if(isset($_SESSION['status']) && $_SESSION['status'] === "login") {
+    header("Location: admin/");
+    exit;
+}
+
+include 'koneksi.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $data = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'");
+    $cek = mysqli_num_rows($data);
+
+    $userCaptcha = $_POST['kodecaptcha'];
+    $captchaSession = $_SESSION['captcha'];
+
+    if (empty($userCaptcha) || strtolower($userCaptcha) !== strtolower($captchaSession)) {
+        echo "
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: 'Capcha Salah kamu buta huruf',
+                icon: 'error',
+                timer: 3000,
+                confirmButtonColor: '#dc3545',
+                timerProgressBar: true,
+                willClose: () => {
+                    window.location = 'login.php';
+                }
+            });
+        </script>";
+    } else {
+        if ($cek > 0) {
+            $_SESSION['username'] = $username;
+            $_SESSION['status'] = "login";
+            $_SESSION['logged_in'] = true;
+
+            echo "
+            <script>
+                Swal.fire({
+                    title: 'Selamat datang!',
+                    text: 'Kamu Berhasil Masuk!',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#0d6efd',
+                    timerProgressBar: true,
+                    willClose: () => {
+                        window.location = 'admin/';
+                    }
+                });
+            </script>";
+        } else {
+            echo "
+            <script>
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Username and Password are incorrect.',
+                    icon: 'error',
+                    timer: 3000,
+                    confirmButtonColor: '#dc3545',
+                    timerProgressBar: true,
+                    willClose: () => {
+                        window.location = 'login.php';
+                    }
+                });
+            </script>";
+        }
+    }
+}
+?>
 
     <div class="row m-0" style="height: 100vh;">
         <div class="col-5 d-flex justify-content-center mt-5">
@@ -48,7 +114,7 @@
                     <!-- <p class="fs-4 justify-content-start fw-0">Selamat Datang! Silahkan masukan akun anda</p> -->
                 </div>
                 <div class="form m-0 container">
-                    <form action="proses/proses_login.php" method="post" role="form">
+                    <form action="" method="post" role="form">
                         <div class="form-group">
                             <label class="mb-2">Username : </label>
                             <br />
@@ -81,6 +147,7 @@
     <?php 
     include ('bootstrap/header.php');
     ?>
+
 </body>
 
 </html>

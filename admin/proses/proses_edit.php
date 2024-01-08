@@ -16,11 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Mengeksekusi query
     if ($query->execute()) {
         // Registrasi berhasil, redirect ke halaman login atau halaman lain yang sesuai
-        echo "<script>alert('Status Berhasil Diedit.');window.location='../index.php';</script>";
+        echo "<script>window.location='../index.php';</script>";
         exit();
     } else {
-        // Registrasi gagal, tampilkan pesan error atau redirect ke halaman registrasi
-        	echo "<script>alert('Status Gagal Diedit.');window.location='../index.php';</script>";
+        	echo "window.location='../index.php';</script>";
         echo "Error: " . $query . "<br>" . $conn->error;
     }
 
