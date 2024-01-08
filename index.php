@@ -37,6 +37,9 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    .gallery{
+        margin-top: 100px;
+    }
 
     .button-container {
         display: flex;
@@ -49,6 +52,10 @@
     .button-container button {
         margin: 0 5px;
         /* jarak antara tombol satu dengan yang lain */
+    }
+    .carousel-inner img {
+        max-width: 100%;
+    margin: auto;
     }
     </style>
     <header class="fixed ">
@@ -216,25 +223,39 @@
 
     <!-- MODAL PENUTUP -->
     <section id="gallery">
-        <div class="our-gallery">
-            <br /><br /><br />
-            <h1>GALERI</h1>
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <img src="img/img3.jpg" style="width: 100%" />
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="img/img4.jpg" style="width: 100%" />
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="img/img5.jpg" style="width: 100%" />
-                </div>
-            </div>
-            <br />
+    <div  class="our-gallery mb-5 gallery">
+    <h1>GALERI</h1>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide "  >
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner " >
+            <div class="carousel-item active " >
+                <img src="img/img4.jpg" class="d-block w-50" alt="..." >
+            </div>
+            <div class="carousel-item">
+                <img src="img/img3.jpg" class="d-block w-50" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img5.jpg" class="d-block w-50" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="margin-left: 280px;" >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="margin-right: 280px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
     </section>
+    <br />
+
+
 
     <section id="contact">
         <div class="contact">

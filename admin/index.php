@@ -114,11 +114,12 @@
                         </li>
 
                         <li class="nav-item d-flex align-items-center">
-                            <a href="./proses/proses_logout.php" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1"></i>
-
-                                <span class="d-sm-inline d-none">Logout</span>
-                            </a>
+                        <form action="./proses/proses_logout.php" method="post" id="logoutForm">
+                        <a href="#" class="nav-link text-body font-weight-bold px-0" onclick="logout()">
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Logout</span>
+                        </a>
+                        </form>
                         </li>
                     </ul>
                 </div>
@@ -225,7 +226,7 @@
                                 </td>
                                 <td class='align-middle text-sm'>
                                 <div class='col text-center'>
-                                    <form action='proses/proses_edit.php' method='post' role='form' id='status'>
+                                    <form action='proses/proses_edit.php' method='post' role='form'  id='editForm_{$row['id']}'>
                                         <input type='hidden' name='id' value='{$row['id']}'>
                                         <select class='form-select' name='status' style='border: none'>
                                             <option value='' disabled selected>Status</option>
@@ -233,14 +234,16 @@
                                             <option value='Lolos'" . ($row['status'] == 'Lolos' ? ' selected' : '') . ">Lolos</option>
                                             <option value='Tidak Lolos'" . ($row['status'] == 'Tidak Lolos' ? ' selected' : '') . ">Tidak Lolos</option>
                                         </select>
+                                    </form>
                                 </div>
                             </td>
                                 <td class='align-middle text-sm'>
-                                <div class='col text-center'>
-                                  <a href='proses/proses_hapus.php?id={$row['id']}' class='btn btn-danger'><i class='bi bi-trash3'></i></a>
-                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success'><i class='bi bi-info-circle'></i></a>
-                                  <button type='submit' class='btn btn-warning'><i class='bi bi-pen'></i></button>
-                                  </form>
+                                <div class='col d-flex text-center g-2 justify-content-center gx-5'>
+                                <form action='proses/proses_hapus.php?id={$row['id']}' class='me-1' method='post' id='deleteForm'>
+                                <a href='#' class='btn btn-danger' onClick='showDeleteConfirmation()'><i class='bi bi-trash3'></i></a>
+                                </form>
+                                <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success me-1'><i class='bi bi-info-circle'></i></a>
+                                <button class='btn btn-warning' type='button' onClick='showEditConfirmation({$row['id']})'><i class='bi bi-pen'></i></button>
                                 </div>
                               </td>
                               </tr>
@@ -279,11 +282,11 @@
 
                       // Menampilkan nomor-nomor halaman
                       for ($i = 1; $i <= $totalPages; $i++) {
-                        echo '<li class="page-item ' . ($current_page == $i ? 'active' : '') . '"><a class="page-link text-white" href="?page=' . $i . '">' . $i . '</a></li>';
+                        echo '<li class="page-item ' . ($current_page == $i ? 'active ' : '') . '"><a class="page-link ' . ($current_page == $i ? 'text-white ' : 'text-dark') . '  " href="?page=' . $i . '">' . $i . '</a></li>';
                       }
                       // Menampilkan tombol "Next" jika halaman saat ini kurang dari total halaman
                       if ($current_page < $totalPages) {
-                          echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page + 1) . '">></a></li>';
+                          echo '<li class="page-item"><a class="page-link " href="?page=' . ($current_page + 1) . '">></a></li>';
                       }
 
                       echo '</ul>';
@@ -448,7 +451,74 @@
     <script src="./assets/js/core/bootstrap.min.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function logout() {
+            Swal.fire({
+                title: 'Konfirmasi Logout',
+                text: 'Anda yakin ingin logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Logout'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Lakukan submit formulir jika konfirmasi diterima
+                    document.getElementById('logoutForm').submit();
+                }
+            });
+        }
+       
+    </script>
+    <script>
+        function showDeleteConfirmation() {
+            Swal.fire({
+                title: 'Konfirmasi Delete?',
+                text: 'Anda yakin ingin Menghapus Data ini?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Lakukan submit formulir jika konfirmasi diterima
+                    document.getElementById('deleteForm').submit();
+                }
+            });
+        }
+       
+    </script>
+    <script>
+       function showEditConfirmation(id) {
+         Swal.fire({
+        title: 'Konfirmasi Edit',
+        text: 'Anda yakin ingin Mengedit?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Edit'
+    }   ).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Berhasil Mengedit!',
+                text: 'Kamu berhasil Mengedit Status!',
+                icon: 'success',
+                timer: 3000,
+                confirmButtonColor: '#0d6efd',
+                timerProgressBar: true,
+                willClose: () => {
+                    // Menggunakan ID untuk menemukan formulir yang sesuai dan mengirimkannya
+                    document.getElementById('editForm_' + id).submit();
+                }
+            });
+        }
+    });
+}
+    </script>
     <script>
     var win = navigator.platform.indexOf("Win") > -1;
     if (win && document.querySelector("#sidenav-scrollbar")) {
