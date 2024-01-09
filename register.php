@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="container mt-3">
-                            <button class="btn btn-primary" style="height: 40px; width: 100%; font-family: " Poppins"; "
+                            <button class="btn btn-primary" style="height: 40px; width: 100%; font-family:'Poppins'; "
                                 type=" submit">Daftar</button>
                             <p class="justify-content-end d-flex mt-3">Sudah Punya Akun? <a href="login.php"> Masuk
                                     Sekarang</a></p>

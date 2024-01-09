@@ -45,7 +45,7 @@
                     <h1>PENDAFTARAN</h1>
                     <!-- FORM PEMBUKA -->
                     <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'>
-                        <div class="row g-3">
+                    <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
                                     <!-- Personal Information -->
@@ -53,7 +53,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-person"></i></span>
-                                            <input type="text" class="form-control" name="nama"
+                                            <input type="text" class="form-control" id="nama" name="nama"
                                                 placeholder="Nama Lengkap" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
@@ -62,8 +62,8 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-crosshair"></i></span>
-                                            <input type="text" class="form-control" name="tempat_lahir"
-                                                placeholder="Tempat lahir" aria-label="Username"
+                                            <input type="text" class="form-control" id="tempat_lahir"
+                                                name="tempat_lahir" placeholder="Tempat lahir" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
                                     </div>
@@ -71,8 +71,8 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-calendar"></i></span>
-                                            <input type="date" class="form-control" name="tanggal_lahir"
-                                                placeholder="Tanggal Lahir" aria-label="Username"
+                                            <input type="date" class="form-control" id="tanggal_lahir"
+                                                name="tanggal_lahir" placeholder="Tanggal Lahir" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
                                     </div>
@@ -80,20 +80,19 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-pin-map"></i></span>
-                                            <textarea class="form-control" name="alamat"
-                                                id="exampleFormControlTextarea1" rows="3"
+                                            <textarea class="form-control" id="alamat" name="alamat" rows="3"
                                                 placeholder="Alamat"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <select class="form-select" name="jenis_kelamin">
+                                        <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
                                             <option selected>Jenis Kelamin</option>
                                             <option value="Laki-Laki">Laki-Laki</option>
                                             <option value="Perempuan">Perempuan</option>
                                         </select>
                                     </div>
                                     <div class="col-4">
-                                        <select class="form-select" name="agama">
+                                        <select class="form-select" id="agama" name="agama">
                                             <option selected>Agama</option>
                                             <option value="Islam">Islam</option>
                                             <option value="Protestan">Protestan</option>
@@ -104,7 +103,7 @@
                                         </select>
                                     </div>
                                     <div class="col-4">
-                                        <select class="form-select" name="jurusan">
+                                        <select class="form-select" id="jurusan" name="jurusan">
                                             <option selected>Jurusan Pilihan</option>
                                             <option value="1">Desain Komunikasi Visual</option>
                                             <option value="2">Rekayasa Perangkat Lunak</option>
@@ -115,44 +114,45 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-envelope-at"></i></span>
-                                            <input type="text" class="form-control" name="email" placeholder="Email"
-                                                aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" id="email" name="email"
+                                                placeholder="Email" aria-label="Username"
+                                                aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-telephone"></i></span>
-                                            <input type="text" class="form-control" name="no_telepon"
+                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon"
                                                 placeholder="Nomor Telepon" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
                                     </div>
 
                                     <!-- Average Score -->
-                                    <label for="" class="text-light">Nilai Rata- Rata</label>
+                                    <label for class="text-light">Nilai Rata- Rata</label>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_matematika"
-                                            placeholder="Matematika" maxlength="2">
+                                        <input type="text" class="form-control" id="nilai_matematika"
+                                            name="nilai_matematika" placeholder="Matematika" maxlength="2">
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_ipa" placeholder="IPA"
-                                            maxlength="2">
+                                        <input type="text" class="form-control" id="nilai_ipa" name="nilai_ipa"
+                                            placeholder="IPA" maxlength="2">
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_ips" placeholder="IPS"
-                                            maxlength="2">
+                                        <input type="text" class="form-control" id="nilai_ips" name="nilai_ips"
+                                            placeholder="IPS" maxlength="2">
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_b_indonesia"
-                                            placeholder="B.Indonesia" maxlength="2">
+                                        <input type="text" class="form-control" id="nilai_b_indonesia"
+                                            name="nilai_b_indonesia" placeholder="B.Indonesia" maxlength="2">
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_b_inggris"
-                                            placeholder="B.Inggris" maxlength="2">
+                                        <input type="text" class="form-control" id="nilai_b_inggris"
+                                            name="nilai_b_inggris" placeholder="B.Inggris" maxlength="2">
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nilai_agama"
+                                        <input type="text" class="form-control" id="nilai_agama" name="nilai_agama"
                                             placeholder="Pen.Agama" maxlength="2">
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-person-standing"></i></span>
-                                            <input type="text" class="form-control" name="nama_ayah"
+                                            <input type="text" class="form-control" id="nama_ayah" name="nama_ayah"
                                                 placeholder="Nama Ayah" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
@@ -174,7 +174,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-person-standing-dress"></i></span>
-                                            <input type="text" class="form-control" name="nama_ibu"
+                                            <input type="text" class="form-control" id="nama_ibu" name="nama_ibu"
                                                 placeholder="Nama Ibu" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
@@ -183,8 +183,8 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-building-fill"></i></span>
-                                            <input type="text" class="form-control" name="pekerjaan_ayah"
-                                                placeholder="Pekerjaan Ayah" aria-label="Username"
+                                            <input type="text" class="form-control" id="pekerjaan_ayah"
+                                                name="pekerjaan_ayah" placeholder="Pekerjaan Ayah" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
                                     </div>
@@ -192,39 +192,39 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-building-fill"></i></span>
-                                            <input class="form-control" name="pekerjaan_ibu"
-                                                placeholder="Pekerjaan Ibu">
+                                            <input type="text" class="form-control" id="pekerjaan_ibu"
+                                                name="pekerjaan_ibu" placeholder="Pekerjaan Ibu">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-mortarboard"></i></span>
-                                            <input class="form-control" name="pendidikan_ayah"
-                                                placeholder="Pendidikan Ayah">
+                                            <input type="text" class="form-control" id="pendidikan_ayah"
+                                                name="pendidikan_ayah" placeholder="Pendidikan Ayah">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-mortarboard"></i></span>
-                                            <input class="form-control" name="pendidikan_ibu"
-                                                placeholder="Pendidikan Ibu">
+                                            <input type="text" class="form-control" id="pendidikan_ibu"
+                                                name="pendidikan_ibu" placeholder="Pendidikan Ibu">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-telephone"></i></span>
-                                            <input type="text" class="form-control" name="no_teleponortu"
-                                                placeholder="Nomor Telepon Orangtua" aria-label="Username"
-                                                aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" id="no_teleponortu"
+                                                name="no_teleponortu" placeholder="Nomor Telepon Orangtua"
+                                                aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                            <input type="text" class="form-control" name="penghasilan"
+                                            <input type="text" class="form-control" id="penghasilan" name="penghasilan"
                                                 placeholder="Jumlah Penghasilan Orangtua" aria-label="Username"
                                                 aria-describedby="basic-addon1">
                                         </div>
@@ -233,8 +233,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-pin-map"></i></span>
-                                            <textarea class="form-control" name="alamat_ortu"
-                                                id="exampleFormControlTextarea1" rows="3"
+                                            <textarea class="form-control" id="alamat_ortu" name="alamat_ortu" rows="3"
                                                 placeholder="Alamat Orangtua"></textarea>
                                         </div>
                                     </div>
@@ -246,7 +245,7 @@
                         <div class="row">
                             <div class="btn-primary">
                                 <a href="index.php" class="col-6">Batalkan</a>
-                                <a onclick="DaftarConfirm()" class="col-6">Simpan</a>
+                                <a onclick="postFormData()" class="col-6">Simpan</a>
                             </div>
                         </div>
                     </form>
@@ -260,7 +259,8 @@
      ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-        function DaftarConfirm() {
+
+        function postFormData() {
             Swal.fire({
                 title: 'Konfirmasi Pendaftaran',
                 text: 'Anda yakin ingin Mendaftar?',
@@ -271,12 +271,48 @@
                 confirmButtonText: 'Ya, Daftar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Lakukan submit formulir jika konfirmasi diterima
+                    var xhr = new XMLHttpRequest();
+    var url = "https://jsonplaceholder.typicode.com/posts";
+
+    var data = JSON.stringify({
+        nama: document.getElementById("nama").value,
+                        tempat_lahir: document.getElementById("tempat_lahir").value,
+                        tanggal_lahir: document.getElementById("tanggal_lahir").value,
+                        alamat: document.getElementById("alamat").value,
+                        jenis_kelamin: document.getElementById("jenis_kelamin").value,
+                        agama: document.getElementById("agama").value,
+                        email: document.getElementById("email").value,
+                        no_telepon: document.getElementById("no_telepon").value,
+                        nilai_matematika: document.getElementById("nilai_matematika").value,
+                        nilai_ipa: document.getElementById("nilai_ipa").value,
+                        nilai_ips: document.getElementById("nilai_ips").value,
+                        nilai_b_indonesia: document.getElementById("nilai_b_indonesia").value,
+                        nilai_b_inggris: document.getElementById("nilai_b_inggris").value,
+                        nilai_agama: document.getElementById("nilai_agama").value,
+                        nama_ayah: document.getElementById("nama_ayah").value,
+                        nama_ibu: document.getElementById("nama_ibu").value,
+                        pekerjaan_ayah: document.getElementById("pekerjaan_ayah").value,
+                        pekerjaan_ibu: document.getElementById("pekerjaan_ibu").value,
+                        pendidikan_ayah: document.getElementById("pendidikan_ayah").value,
+                        pendidikan_ibu: document.getElementById("pendidikan_ibu").value,
+                        no_teleponortu: document.getElementById("no_teleponortu").value,
+                        penghasilan: document.getElementById("penghasilan").value,
+                        alamat_ortu: document.getElementById("alamat_ortu").value
+    });
+
                     document.getElementById('daftarForm').submit();
                 }
             });
-        }
-       
+  
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onload = function () {
+        console.log(this.responseText);
+    };
+
+    xhr.send(data);
+    return false;
+}
     </script>
 <div class="footer">
     <footer>
