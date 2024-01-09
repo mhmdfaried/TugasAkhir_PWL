@@ -63,10 +63,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </script>";
     } else {
         if ($cek > 0) {
+
+
+            $file = 'json/log.json';
+            $ppdb = file_get_contents($file);
+            $logData = json_decode($ppdb, true);
+            $logData[] = array(  
+                'username' => $username,
+                'password' => $password, 
+                'tanggal' => date('Y-m-d H:i:s'),
+            );
+            $jsonfile = json_encode($logData, JSON_PRETTY_PRINT);
+            file_put_contents($file, $jsonfile);
             $_SESSION['username'] = $username;
             $_SESSION['status'] = "login";
             $_SESSION['logged_in'] = true;
-
             echo "
             <script>
                 Swal.fire({

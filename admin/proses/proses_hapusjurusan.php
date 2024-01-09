@@ -1,6 +1,6 @@
 <?php
 // Mengimpor file koneksi database
-include '../koneksi.php';
+include '../../koneksi.php';
 
 // Tampilkan isi dari $_GET untuk debugging
 var_dump($_GET);
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     // Menjalankan pernyataan prepared statement dan menangani kesalahan
     if ($stmt->execute()) {
         // Jika penghapusan berhasil, arahkan kembali ke halaman utama
-         echo "<script>alert('Data Berhasil Dihapus.');window.location='../datajurusan.php';</script>";
+         echo "<script>alert('Data Berhasil Dihapus.');window.location='../jurusan.php';</script>";
         exit(); // Pastikan untuk keluar setelah menggunakan header
     } else {
         // Jika terjadi kesalahan, tampilkan pesan kesalahan

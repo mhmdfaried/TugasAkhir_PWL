@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['status']) && $_SESSION['status'] === "logout") {
+    header("Location: ../login.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -306,7 +315,10 @@
 
 
     </main>
+<?php 
+$username = $_SESSION['username'];
 
+?>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
             <i class="material-icons py-2">settings</i>
@@ -314,7 +326,7 @@
         <div class="card shadow-lg">
             <div class="card-header pb-0 pt-3">
                 <div class="float-start">
-                    <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+                    <h5 class="mt-3 mb-0">Hello <?php echo($username)?></h5>
                     <p>See our dashboard options.</p>
                 </div>
                 <div class="float-end mt-4">
