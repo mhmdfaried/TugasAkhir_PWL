@@ -44,7 +44,7 @@
                 <div class="regis-form">
                     <h1>PENDAFTARAN</h1>
                     <!-- FORM PEMBUKA -->
-                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'>
+                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form">
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
@@ -246,7 +246,7 @@
                         <div class="row">
                             <div class="btn-primary">
                                 <a href="index.php" class="col-6">Batalkan</a>
-                                <a onclick="DaftarConfirm()" class="col-6">Simpan</a>
+                                <button type="submit" class="col-6">Simpan</button>
                             </div>
                         </div>
                     </form>
@@ -258,26 +258,6 @@
 </body>
 <?php include ('bootstrap/footer.php')
      ?>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-        function DaftarConfirm() {
-            Swal.fire({
-                title: 'Konfirmasi Pendaftaran',
-                text: 'Anda yakin ingin Mendaftar?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Daftar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Lakukan submit formulir jika konfirmasi diterima
-                    document.getElementById('daftarForm').submit();
-                }
-            });
-        }
-       
-    </script>
 <div class="footer">
     <footer>
         <p>Copyright &copy; Project 3 - Group 5 2023</p>
