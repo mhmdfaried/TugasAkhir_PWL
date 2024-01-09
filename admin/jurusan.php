@@ -125,10 +125,10 @@
                         </li>
 
                         <form action="./proses/proses_logout.php" method="post" id="logoutForm">
-                        <a href="#" class="nav-link text-body font-weight-bold px-0" onclick="logout()">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Logout</span>
-                        </a>
+                            <a href="#" class="nav-link text-body font-weight-bold px-0" onclick="logout()">
+                                <i class="fa fa-user me-sm-1"></i>
+                                <span class="d-sm-inline d-none">Logout</span>
+                            </a>
                         </form>
                     </ul>
                 </div>
@@ -536,23 +536,22 @@
     <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function logout() {
-            Swal.fire({
-                title: 'Konfirmasi Logout',
-                text: 'Anda yakin ingin logout?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Logout'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Lakukan submit formulir jika konfirmasi diterima
-                    document.getElementById('logoutForm').submit();
-                }
-            });
-        }
-       
+    function logout() {
+        Swal.fire({
+            title: 'Konfirmasi Logout',
+            text: 'Anda yakin ingin logout?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Logout'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Lakukan submit formulir jika konfirmasi diterima
+                document.getElementById('logoutForm').submit();
+            }
+        });
+    }
     </script>
      <script>
         function editConfirmation(id) {
