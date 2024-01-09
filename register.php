@@ -4,6 +4,7 @@
 <head>
     <link rel="icon" type="image/png" href="img/logo2.png" />
     <title>HALAMAN REGISTER ADMIN</title>
+    <link rel="stylesheet" href="css/style_form.css" />
     <?php 
     include ('bootstrap/header.php');
     ?>
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-    
+
 
     <style>
     .bg-img {
@@ -25,7 +26,7 @@
         background-size: cover;
     }
     </style>
-        <?php
+    <?php
         session_start();
 
 
@@ -88,13 +89,13 @@
     <div class="row m-0" style="height: 100vh;">
         <div class="col-5 d-flex justify-content-center mt-5">
             <div style="max-width: 600px; width: 100%;">
-                <a href="index.php"
-                    class="btn btn-primary position-absolute top-0 start-0 mt-3 ms-3 ">Kembali</a><br><br>
+                <a href="index.php" class="btn btn-primary position-absolute top-0 start-0 mt-3 ms-3 "
+                    style="font-family: 'Poppins';">Kembali</a><br><br>
                 <div class="image">
                     <img src="img/logo1.png" height="150px" alt="image logo">
                 </div>
                 <div class="container mt-2">
-                    <p class="h1 justify-content-start">Daftar akun Admin</p>
+                    <p class="h1 justify-content-start">Daftar Akun Admin</p>
                     <!-- <p class="fs-4 justify-content-start fw-0">Selamat Datang! Silahkan daftarkan akun anda</p> -->
                 </div>
                 <div class="form m-0 container">
@@ -137,9 +138,9 @@
                         </div>
 
                         <div class="container mt-3">
-                            <button class="btn btn-primary" style="height: 40px; width: 100%;"
-                                type="submit">Daftar</button>
-                            <p class="justify-content-end d-flex mt-2">Sudah Punya Akun? <a href="login.php"> Masuk
+                            <button class="btn btn-primary" style="height: 40px; width: 100%; font-family: " Poppins"; "
+                                type=" submit">Daftar</button>
+                            <p class="justify-content-end d-flex mt-3">Sudah Punya Akun? <a href="login.php"> Masuk
                                     Sekarang</a></p>
                         </div>
 
