@@ -38,5 +38,15 @@
         "username": "admin",
         "password": "testing123",
         "tanggal": "2024-01-09 03:24:55"
+    },
+    {
+        "username": "mhmdfaried",
+        "password": "admin123",
+        "tanggal": "2024-01-09 04:27:30"
+    },
+    {
+        "username": "mhmdfaried",
+        "password": "admin123",
+        "tanggal": "2024-01-09 10:30:31"
     }
 ]
