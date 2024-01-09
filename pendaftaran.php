@@ -44,8 +44,9 @@
                 <div class="regis-form">
                     <h1>PENDAFTARAN</h1>
                     <!-- FORM PEMBUKA -->
-                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'>
-                    <div class="row g-3">
+                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'
+                        onsubmit="return sendData()">
+                        <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
                                     <!-- Personal Information -->
@@ -245,7 +246,7 @@
                         <div class="row">
                             <div class="btn-primary">
                                 <a href="index.php" class="col-6">Batalkan</a>
-                                <a onclick="postFormData()" class="col-6">Simpan</a>
+                                <button onclick="DaftarConfirm()" class="col-6">Simpan</button>
                             </div>
                         </div>
                     </form>
@@ -257,63 +258,26 @@
 </body>
 <?php include ('bootstrap/footer.php')
      ?>
+<script src="proses/proses_tambahajax.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-
-        function postFormData() {
-            Swal.fire({
-                title: 'Konfirmasi Pendaftaran',
-                text: 'Anda yakin ingin Mendaftar?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Daftar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    var xhr = new XMLHttpRequest();
-    var url = "https://jsonplaceholder.typicode.com/posts";
-
-    var data = JSON.stringify({
-        nama: document.getElementById("nama").value,
-                        tempat_lahir: document.getElementById("tempat_lahir").value,
-                        tanggal_lahir: document.getElementById("tanggal_lahir").value,
-                        alamat: document.getElementById("alamat").value,
-                        jenis_kelamin: document.getElementById("jenis_kelamin").value,
-                        agama: document.getElementById("agama").value,
-                        email: document.getElementById("email").value,
-                        no_telepon: document.getElementById("no_telepon").value,
-                        nilai_matematika: document.getElementById("nilai_matematika").value,
-                        nilai_ipa: document.getElementById("nilai_ipa").value,
-                        nilai_ips: document.getElementById("nilai_ips").value,
-                        nilai_b_indonesia: document.getElementById("nilai_b_indonesia").value,
-                        nilai_b_inggris: document.getElementById("nilai_b_inggris").value,
-                        nilai_agama: document.getElementById("nilai_agama").value,
-                        nama_ayah: document.getElementById("nama_ayah").value,
-                        nama_ibu: document.getElementById("nama_ibu").value,
-                        pekerjaan_ayah: document.getElementById("pekerjaan_ayah").value,
-                        pekerjaan_ibu: document.getElementById("pekerjaan_ibu").value,
-                        pendidikan_ayah: document.getElementById("pendidikan_ayah").value,
-                        pendidikan_ibu: document.getElementById("pendidikan_ibu").value,
-                        no_teleponortu: document.getElementById("no_teleponortu").value,
-                        penghasilan: document.getElementById("penghasilan").value,
-                        alamat_ortu: document.getElementById("alamat_ortu").value
+function DaftarConfirm() {
+    Swal.fire({
+        title: 'Konfirmasi Pendaftaran',
+        text: 'Anda yakin ingin Mendaftar?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Daftar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Lakukan submit formulir jika konfirmasi diterima
+            document.getElementById('daftarForm').submit();
+        }
     });
-
-                    document.getElementById('daftarForm').submit();
-                }
-            });
-  
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.onload = function () {
-        console.log(this.responseText);
-    };
-
-    xhr.send(data);
-    return false;
 }
-    </script>
+</script>
 <div class="footer">
     <footer>
         <p>Copyright &copy; Project 3 - Group 5 2023</p>

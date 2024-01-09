@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </script>";
     } else {
         if ($cek > 0) {
-
+date_default_timezone_set('Asia/Jakarta');
 
             $file = 'json/log.json';
             $ppdb = file_get_contents($file);
