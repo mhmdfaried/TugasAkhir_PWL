@@ -1,37 +1,11 @@
 [
     {
-        "id": "659e16d5257c5a91c7d82d69c53fb",
-        "tanggal": "2024-01-10 11:02:29",
-        "nama": "Roger Simanjuntak",
-        "email": "testing@gmail.com",
-        "username": "admin",
-        "status": "Logout",
-        "tanggal_logout": "2024-01-10 05:03:24"
-    },
-    {
-        "id": "659e17c1f3ba001a724b6d294d490",
-        "tanggal": "2024-01-10 11:06:25",
-        "nama": "Roger Simanjuntak",
-        "email": "testing@gmail.com",
-        "username": "admin",
-        "status": "Logout",
-        "tanggal_logout": "2024-01-10 05:06:34"
-    },
-    {
-        "id": "659e17d74f42e6fc3bf65db1f2b33",
-        "tanggal": "2024-01-10 11:06:47",
-        "nama": "Roger Simanjuntak",
-        "email": "testing@gmail.com",
-        "username": "admin",
-        "status": "Logout",
-        "tanggal_logout": "2024-01-10 05:06:52"
-    },
-    {
-        "id": "659e187348d3f442cc1610688ce22",
-        "tanggal": "2024-01-10 11:09:23",
-        "nama": "Roger Simanjuntak",
-        "email": "testing@gmail.com",
-        "username": "admin",
-        "status": "Sedang Login"
+        "id": "659e2707403fc4a0a271d3c074229",
+        "tanggal login": "2024-01-10 12:11:35",
+        "nama": "Muhamad Faried",
+        "email": "mhmdfaried@gmail.com",
+        "username": "mhmdfaried",
+        "status": "Sedang Login",
+        "tanggal Logout": "2024-01-10 12:11:35"
     }
 ]
