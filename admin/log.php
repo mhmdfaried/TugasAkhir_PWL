@@ -117,29 +117,29 @@
                             </form>
                         </div>
                     </div>
-                    <ul class="navbar-nav justify-content-end">
+                     <ul class="navbar-nav justify-content-end">
 
-                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0">
-                                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                            </a>
-                        </li>
+                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item px-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0">
+                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+                        </a>
+                    </li>
 
-                        <form action="./proses/proses_logout.php" method="post" id="logoutForm">
-                            <a href="#" class="nav-link text-body font-weight-bold px-0" onclick="logout()">
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">Logout</span>
-                            </a>
-                        </form>
+                    <form action="./proses/proses_logout.php" method="post" id="logoutForm">
+                        <a href="#" class="nav-link text-body font-weight-bold px-0" onclick="logout()">
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Logout</span>
+                        </a>
+                    </form>
                     </ul>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                                         " . ($log['status'] == 'Logout' ? $log['tanggal_logout'] : 'Belum Logout') . "
                                     </h6>
                                 </div>
-                            </td>
+                            </td>g
                                 <td class='align-middle text-sm'>
                                 <div class='col text-center justify-content-center d-flex'>
                                 <a href='proses/delete_satudata.php?tanggal={$log["tanggal"]}'  class='btn btn-danger me-2'><i class='bi bi-trash3'></i></a>

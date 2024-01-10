@@ -75,12 +75,12 @@ date_default_timezone_set('Asia/Jakarta');
             $randomId = uniqid() . bin2hex(random_bytes(8));
             $logData[] = array(  
                 'id' => $randomId,
-                'tanggal login' => date('Y-m-d H:i:s'),
+                'tanggal' => date('Y-m-d H:i:s'),
                 'nama' => $userData['nama'],  // Include the user's name
                 'email' => $userData['email'],
                 'username' => $username,
                 'status' => 'Sedang Login',
-                'tanggal Logout' => date('Y-m-d H:i:s'),
+                
             );
             $jsonfile = json_encode($logData, JSON_PRETTY_PRINT);
             file_put_contents($file, $jsonfile);
