@@ -44,7 +44,7 @@
                 <div class="regis-form">
                     <h1>PENDAFTARAN</h1>
                     <!-- FORM PEMBUKA -->
-                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'>
+                    <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm' onsubmit="return postFormData()">
                     <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
@@ -245,7 +245,7 @@
                         <div class="row">
                             <div class="btn-primary">
                                 <a href="index.php" class="col-6">Batalkan</a>
-                                <a onclick="postFormData()" class="col-6">Simpan</a>
+                                <a class="col-6">Simpan</a>
                             </div>
                         </div>
                     </form>
@@ -259,7 +259,10 @@
      ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-
+        function DaftarConfirm() {
+            
+          
+        }
         function postFormData() {
             Swal.fire({
                 title: 'Konfirmasi Pendaftaran',
