@@ -216,7 +216,7 @@
                                 </td>
                                 <td>
                                 <div class='text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['tanggal']}</h6>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['tanggal_login']}</h6>
                                 </div>
                                 </td>
                                 <td>
