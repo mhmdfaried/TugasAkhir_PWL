@@ -78,6 +78,15 @@ if(isset($_SESSION['status']) && $_SESSION['status'] === "logout") {
                         <span class="nav-link-text ms-1">Jurusan</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./log.php">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">dns</i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Log Admin</span>
+                    </a>
+                </li>
         </div>
     </aside>
 

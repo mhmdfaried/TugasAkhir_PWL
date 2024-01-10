@@ -1,5 +1,9 @@
 function sendData() {
         var xhr = new XMLHttpRequest();
+        xhr.onerror = function () {
+    console.error('Error in AJAX request.');
+};
+
         var url = "https://jsonplaceholder.typicode.com/posts";
         
         var data = JSON.stringify({
