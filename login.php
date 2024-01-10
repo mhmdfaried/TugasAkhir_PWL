@@ -37,10 +37,13 @@ if(isset($_SESSION['status']) && $_SESSION['status'] === "login") {
 include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // $nama = $_POST['nama'];
+    // $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    
+    $data = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE username = '$username'");
 
-    $data = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'");
     $cek = mysqli_num_rows($data);
 
     $userCaptcha = $_POST['kodecaptcha'];
@@ -67,11 +70,14 @@ date_default_timezone_set('Asia/Jakarta');
 
             $file = 'json/log.json';
             $ppdb = file_get_contents($file);
+            $userData = mysqli_fetch_assoc($data);
             $logData = json_decode($ppdb, true);
             $logData[] = array(  
-                'username' => $username,
-                'password' => $password, 
                 'tanggal' => date('Y-m-d H:i:s'),
+                'nama' => $userData['nama'],  // Include the user's name
+                'email' => $userData['email'],
+                'username' => $username,
+                'status' => 'Sedang Login'
             );
             $jsonfile = json_encode($logData, JSON_PRETTY_PRINT);
             file_put_contents($file, $jsonfile);
@@ -105,7 +111,7 @@ date_default_timezone_set('Asia/Jakarta');
                     willClose: () => {
                         window.location = 'login.php';
                     }
-                });
+                }); 
             </script>";
         }
     }
