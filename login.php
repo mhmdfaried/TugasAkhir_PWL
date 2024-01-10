@@ -72,15 +72,19 @@ date_default_timezone_set('Asia/Jakarta');
             $ppdb = file_get_contents($file);
             $userData = mysqli_fetch_assoc($data);
             $logData = json_decode($ppdb, true);
+            $randomId = uniqid() . bin2hex(random_bytes(8));
             $logData[] = array(  
-                'tanggal' => date('Y-m-d H:i:s'),
+                'id' => $randomId,
+                'tanggal login' => date('Y-m-d H:i:s'),
                 'nama' => $userData['nama'],  // Include the user's name
                 'email' => $userData['email'],
                 'username' => $username,
-                'status' => 'Sedang Login'
+                'status' => 'Sedang Login',
+                'tanggal Logout' => date('Y-m-d H:i:s'),
             );
             $jsonfile = json_encode($logData, JSON_PRETTY_PRINT);
             file_put_contents($file, $jsonfile);
+            $_SESSION['user_id'] = $randomId;
             $_SESSION['username'] = $username;
             $_SESSION['status'] = "login";
             $_SESSION['logged_in'] = true;

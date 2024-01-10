@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +74,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white active" href="./jurusan.php">
+                    <a class="nav-link text-white " href="./jurusan.php">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">badge</i>
                         </div>
@@ -78,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="./log.php">
+                    <a class="nav-link text-white active" href="./log.php">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dns</i>
                         </div>
@@ -86,10 +91,6 @@
                         <span class="nav-link-text ms-1">Log Admin</span>
                     </a>
                 </li>
-
-
-
-
         </div>
     </aside>
 
@@ -103,9 +104,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Jurusan</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Log Admin</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Jurusan</h6>
+                    <h6 class="font-weight-bolder mb-0">Log Admin</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -155,7 +156,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="d-flex flex-column h-100">
-                                        <h2 class="font-weight-bolder mb-0">Data Jurusan</h2>
+                                        <h2 class="font-weight-bolder mb-0">Data Log Admin</h2>
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +168,10 @@
                             <div class="card mb-4">
                                 <div class="d-flex">
                                     <div
-                                        class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-xl mt-n3 ms-4">
-                                        <i class="material-icons opacity-10">badge</i>
+                                        class="icon icon-shape icon-lg bg-gradient-warning shadow text-center border-radius-xl mt-n3 ms-4">
+                                        <i class="material-icons opacity-10">dns</i>
                                     </div>
-                                    <h6 class="mt-3 mb-2 ms-3">Data Jurusan</h6>
+                                    <h6 class="mt-3 mb-2 ms-3">Data Log Admin</h6>
                                 </div>
                                 <div class="card-body p-3">
                                     <div class="row">
@@ -179,125 +180,102 @@
                                                 <table class="table align-items-center">
                                                     <thead>
                                                         <tr>
-                                                            <th class="text-center">Id</th>
-                                                            <th class="text-center">Nama jurusan</th>
-                                                            <th class="text-center">Deskripsi</th>
-                                                            <th class="text-center">Nama Koordinator</th>
-                                                            <th class="text-center">Email Koordinator</th>
-                                                            <th class="text-center">Nomor Telepon Koordinator</th>
+                                                            <th class="text-center">No</th>
+                                                            <th class="text-center">Tanggal</th>
+                                                            <th class="text-center">Email</th>
+                                                            <th class="text-center">Admin</th>
+                                                            <th class="text-center">Username</th>
+                                                            <th class="text-center">Status</th>
+                                                            <th class="text-center">Tanggal Logout</th>
                                                             <th class="text-center">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php 
-                            include "../koneksi.php";
+                            <?php 
+                            $file = "../json/log.json";
+
+                            $login = file_get_contents($file);
+
+                            $data = json_decode($login, true);
                             $limit = 10;
-                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                            $start = ($page - 1) * $limit;
-            
-                            // Query untuk mengambil data dengan pagination dan kata kunci pencarian
-                            $searchTerm = isset($_POST['searchTerm']) ? $_POST['searchTerm'] : '';
-                            $whereClause = '';
-            
-                            if (!empty($searchTerm)) {
-                                $whereClause = "WHERE nama_jurusan LIKE '%$searchTerm%'";
-                            }
-            
-                            $query = "SELECT * FROM tbl_jurusan
-                            $whereClause
-                            LIMIT $start, $limit";
-            
-                            $result = $conn->query($query);
-                            if ($result === false) {
-                              die('Error: ' . $conn->error);
-                          }
-          
-                          if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                              echo ("
-                              <tr>
+                            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $start = ($current_page - 1) * $limit;
+                            
+                            // Get the data for the current page
+                            $currentPageData = array_slice($data, $start, $limit);
+                            
+                         
+                         
+                            $no = 1;
+                            foreach ($currentPageData  as $log) {
+                                echo ("  <tr>
                                 <td>
-                                  <div class='text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['id']}</h6>
-                                  </div>
+                                <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>$no</h6>
+                                </div>
                                 </td>
                                 <td>
-                                  <div class='text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['nama_jurusan']}</h6>
-                                  </div>
+                                <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['tanggal']}</h6>
+                                </div>
                                 </td>
                                 <td>
-                                  <div class='text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0' style='max-width: 200px; overflow: hidden; text-overflow: ellipsis;'>{$row['deskripsi']}</h6>
-                                  </div>
+                                <div class='text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0' style='max-width: 200px; overflow: hidden; text-overflow: ellipsis;'>{$log['email']}</h6>
+                                </div>
                                 </td>
                                 <td class='align-middle text-sm'>
-                                  <div class='col text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['nama_koordinator']}</h6>
-                                  </div>
+                                <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['nama']}</h6>
+                                </div>
                                 </td>
                                 <td class='align-middle text-sm'>
-                                  <div class='col text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['email_koordinator']}</h6>
-                                  </div>
+                                <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['username']}</h6>
+                                </div>
                                 </td>
                                 <td class='align-middle text-sm'>
-                                  <div class='col text-center'>
-                                    <h6 class='text-sm font-weight-normal mb-0'>{$row['no_telepon_koordinator']}</h6>
-                                  </div>
+                                <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>{$log['status']}</h6>
+                                </div>
                                 </td>
+                                <td>
+                                <div class='col text-center'>
+                                    <h6 class='text-sm font-weight-normal mb-0'>
+                                        " . ($log['status'] == 'Logout' ? $log['tanggal_logout'] : 'Belum Logout') . "
+                                    </h6>
+                                </div>
+                            </td>
                                 <td class='align-middle text-sm'>
                                 <div class='col text-center justify-content-center d-flex'>
-                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop{$row['id']}' class='btn btn-success me-2'><i class='bi bi-info-circle'></i></a>
-                                  <a data-bs-toggle='modal' data-bs-target='#staticBackdrop1{$row['id']}' class='btn btn-warning'><i class='bi bi-pen'></i></a>
+                                <a href='proses/delete_satudata.php?tanggal={$log["tanggal"]}'  class='btn btn-danger me-2'><i class='bi bi-trash3'></i></a>
                                 </div>
-                              </td>
-                              </tr>
-                              ");
+                            </td>
+                            </tr>");
+                            $no++;
                             }
-                          } else {
-                              // Menampilkan pesan jika data tidak ditemukan
-                              echo "<tr><td class='text-center' colspan='7'>Data not found.</td></tr>";
-                          }
-                         
                           
-                          $conn->close();
                             ?>
                                                     </tbody>
                                                 </table>
 
                                                 <!-- Pagination -->
                                                 <?php
-                      // Include file koneksi database
-                      include "../koneksi.php";
-
-                      // Query untuk mendapatkan total data
-                      $queryTotal = "SELECT COUNT(id) as total FROM tbl_calonsiswa";
-                      $resultTotal = $conn->query($queryTotal);
-                      $dataTotal = $resultTotal->fetch_assoc();
-                      $totalPages = ceil($dataTotal['total'] / $limit);
-
-                      // Menentukan halaman saat ini
-                      $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-                      // Menampilkan tombol "Previous" jika halaman saat ini lebih dari 1
+     
                       echo '<ul class="pagination justify-content-center">';
                       if ($current_page > 1) {
                           echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page - 1) . '"><</a></li>';
                       }
-
-                      // Menampilkan nomor-nomor halaman
-                      for ($i = 1; $i <= $totalPages; $i++) {
-                        echo '<li class="page-item ' . ($current_page == $i ? 'active' : '') . '"><a class="page-link text-white" href="?page=' . $i . '">' . $i . '</a></li>';
+                      
+                      for ($i = 1; $i <= ceil(count($data) / $limit); $i++) {
+                          echo '<li class="page-item ' . ($current_page == $i ? 'active' : '') . '"><a class="page-link text-white" href="?page=' . $i . '">' . $i . '</a></li>';
                       }
-                      // Menampilkan tombol "Next" jika halaman saat ini kurang dari total halaman
-                      if ($current_page < $totalPages) {
+                      
+                      if ($current_page < ceil(count($data) / $limit)) {
                           echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page + 1) . '">></a></li>';
                       }
-
+                      
                       echo '</ul>';
-
-                      $conn->close();
                       ?>
                                             </div>
                                         </div>

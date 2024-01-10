@@ -2,14 +2,14 @@
 session_start();
 
 // Hapus semua session
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     // Read the JSON log file
     $file = '../../json/log.json';
     $logData = json_decode(file_get_contents($file), true);
 
-    // Find the entry for the user who is logging out and update the status to "Logout"
-    foreach($logData as &$entry) {
-        if ($entry['username'] == $_SESSION['username']) {
+    // Find the entry for the user who is logging out based on the user's ID
+    foreach ($logData as &$entry) {
+        if ($entry['id'] == $_SESSION['user_id']) {
             $entry['status'] = 'Logout';
             $entry['tanggal_logout'] = date('Y-m-d H:i:s'); // Add logout timestamp
             break;

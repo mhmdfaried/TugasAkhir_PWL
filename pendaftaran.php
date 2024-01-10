@@ -46,7 +46,7 @@
                     <!-- FORM PEMBUKA -->
                     <form class="" action="proses/proses_pendaftaran.php" method="post" role="form" id='daftarForm'
                         onsubmit="return sendData()">
-                        <div class="row g-3">
+                    <div class="row g-3">
                             <div class="col-6">
                                 <div class="row g-3">
                                     <!-- Personal Information -->
