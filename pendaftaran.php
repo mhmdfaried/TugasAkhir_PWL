@@ -20,6 +20,17 @@
 </head>
 
 <body>
+    <style>
+    .home {
+        padding-top: 110px;
+        /* width: 100%; */
+        /* height: 100%; */
+        background-image: linear-gradient(rgba(44, 62, 80, 0.6), rgba(248, 241, 234, 0.33)), url("img/img4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
     <header class="fixed">
         <nav class="topnav">
             <div class="logo"><img src="img/logo1.png" alt="logo" /></div>
@@ -39,7 +50,7 @@
     </header>
 
     <section id="home">
-        <div class="">
+        <div class="home">
             <div class="header-home">
                 <div class="regis-form">
                     <h1>PENDAFTARAN</h1>
@@ -281,7 +292,7 @@ function DaftarConfirm() {
 </script>
 <div class="footer">
     <footer>
-        <p>Copyright &copy; Project 3 - Group 5 2023</p>
+        <p>Copyright &copy; Kelompok 2 - Tugas Akhir Pemrograman Web Lanjutan 2024</p>
     </footer>
 </div>
 
