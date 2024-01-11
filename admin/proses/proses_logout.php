@@ -4,6 +4,7 @@ session_start();
 // Hapus semua session
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     // Read the JSON log file
+    date_default_timezone_set('Asia/Jakarta');
     $file = '../../json/log.json';
     $logData = json_decode(file_get_contents($file), true);
 
