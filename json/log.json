@@ -16,5 +16,23 @@
         "username": "mhmdfaried",
         "status": "Sudah Logout",
         "tanggal_logout": "2024-01-10 14:15:56"
+    },
+    {
+        "id": "659e4bf799db35b748782c17e7181",
+        "tanggal": "2024-01-10 14:49:11",
+        "nama": "Muhamad Faried",
+        "email": "mhmdfaried@gmail.com",
+        "username": "mhmdfaried",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-10 15:30:57"
+    },
+    {
+        "id": "659e5a7a8038aa9db1dd394f52832",
+        "tanggal": "2024-01-10 15:51:06",
+        "nama": "Muhamad Faried",
+        "email": "mhmdfaried@gmail.com",
+        "username": "mhmdfaried",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-10 16:01:18"
     }
 ]

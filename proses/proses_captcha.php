@@ -1,6 +1,6 @@
 <?php
 function acakCaptcha() {
-    $str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz";
+    $str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     $pass = array();
     $panjangalpha = strlen($str) - 2;
