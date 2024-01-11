@@ -3,6 +3,7 @@ session_start();
 
 // Hapus semua session
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+    date_default_timezone_set('Asia/Jakarta');
     // Read the JSON log file
     date_default_timezone_set('Asia/Jakarta');
     $file = '../../json/log.json';
@@ -11,7 +12,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     // Find the entry for the user who is logging out based on the user's ID
     foreach ($logData as &$entry) {
         if ($entry['id'] == $_SESSION['user_id']) {
-            $entry['status'] = 'Logout';
+            $entry['status'] = 'Sudah Logout';
             $entry['tanggal_logout'] = date('Y-m-d H:i:s'); // Add logout timestamp
             break;
         }
