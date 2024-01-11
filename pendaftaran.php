@@ -22,7 +22,7 @@
 <body>
     <style>
     .home {
-        /* padding-top: 110px; */
+        padding-top: 110px;
         /* width: 100%; */
         /* height: 100%; */
         background-image: linear-gradient(rgba(44, 62, 80, 0.6), rgba(248, 241, 234, 0.33)), url("img/img4.jpg");
