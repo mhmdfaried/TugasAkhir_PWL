@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      mysqli_query($conn, $sql_insert_orang_tua);
  
      // Redirect ke halaman sukses atau formulir baru
-        echo "<script>alert('Data Berhasil Terkirim.');window.location='../index.php';</script>";
+        echo "<script>alert('Data Berhasil Terkirim.');window.location='../data.php';</script>";
         exit();
 }
 ?>

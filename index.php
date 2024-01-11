@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <?php include('bootstrap/header.php'); ?>
+    <?php include('bootstrap/header.php'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/logo2.png" />
     <link rel="stylesheet" href="css/main.css" />
@@ -19,34 +19,45 @@
 
 <body>
     <style>
-        .modal {
-            position: fixed;
+    .modal {
+        position: fixed;
         z-index: 5000;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        }
-        #home{
-            width: 100%;
-            background-color: #0a4d68;
-            background-image: linear-gradient(
-                rgba(44, 62, 80, 0.6),
-                rgba(248, 241, 234, 0.33)
-            ),
-            url("img/img3.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-       
-        .button-container {
-        display: flex;
-        justify-content: center; /* membuat tombol berada di tengah secara horizontal */
-        margin-top: 10px; /* jarak antara teks dan tombol */
     }
 
+    #home {
+        width: 100%;
+        background-color: #0a4d68;
+        background-image: linear-gradient(rgba(44, 62, 80, 0.6),
+                rgba(248, 241, 234, 0.33)),
+            url("img/img3.jpg");
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .gallery {
+        margin-top: 100px;
+    }
+
+    .button-container {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
     .button-container button {
-        margin: 0 5px; /* jarak antara tombol satu dengan yang lain */
+        margin: 0 5px;
+        /* jarak antara tombol satu dengan yang lain */
+    }
+
+    .carousel-inner img {
+        max-width: 100%;
+        margin: auto;
     }
     </style>
     <header class="fixed ">
@@ -124,11 +135,11 @@
     </section>
 
     <section id="major">
-    <div class="our-major">
-        <br /><br /><br />
-        <h1>PROGRAM KEAHLIAN</h1>
-        <div class="deskripsi-major grid-container grid-column-major">
-            <?php 
+        <div class="our-major">
+            <br /><br /><br />
+            <h1>PROGRAM KEAHLIAN</h1>
+            <div class="deskripsi-major grid-container grid-column-major">
+                <?php 
             include ('koneksi.php');
             $result = mysqli_query($conn, "SELECT * FROM tbl_jurusan");
             while ($d = mysqli_fetch_assoc($result)) {
@@ -141,8 +152,8 @@
                     <p>{$d['deskripsi']}</p>
                 </div>";
             }
-            ?> 
-            <?php 
+            ?>
+                <?php 
             $result = mysqli_query($conn, "SELECT * FROM tbl_jurusan");
             while ($d = mysqli_fetch_assoc($result)) {
                 $biaya_spp_in_rupiah = number_format($d['biaya_spp'], 0, ',', '.');
@@ -205,76 +216,102 @@
                     </div>
                 </div>";
             }
-        ?> 
-        </div>
-
-        
-    </div>
-</section>
-
-<!-- MODAL PENUTUP -->
-    <section id="gallery">
-        <div class="our-gallery">
-            <br /><br /><br />
-            <h1>GALERI</h1>
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <img src="img/img3.jpg" style="width: 100%" />
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="img/img4.jpg" style="width: 100%" />
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="img/img5.jpg" style="width: 100%" />
-                </div>
+        ?>
             </div>
-            <br />
+
+
         </div>
     </section>
 
+    <!-- MODAL PENUTUP -->
+    <section id="gallery">
+        <div class="our-gallery mb-5 gallery">
+            <h1>GALERI</h1>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide ">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner ">
+                <div class="carousel-item active ">
+                    <img src="img/img4.jpg" class="d-block w-50" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img3.jpg" class="d-block w-50" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img5.jpg" class="d-block w-50" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev" style="margin-left: 280px;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next" style="margin-right: 280px;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <br />
+
+
+
     <section id="contact">
         <div class="contact">
-            <div class="contact-us grid-container grid-column-contact">
-                <br />
-                <div class="deskripsi-contact">
-                    <h1>LOKASI</h1>
-                    <h2>Jl Poras No. 7, Sindang Barang Loji</h2>
-                    <ul>
-                        <li>
-                            <p>
-                                Whatsapp :
-                                <a
-                                    href="https://api.whatsapp.com/send/?phone=6287711177442&text&type=phone_number&app_absent=0">0877-1117-7442
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                email :
-                                <a href="https://smkit.pesat@gmail.com">smkit.pesat@gmail.com
-                                </a>
-                            </p>
-                        </li>
-                    </ul>
+            <div class="row">
+                <div class="contact-us grid-container grid-column-contact">
+                    <br />
+                    <div class="deskripsi-contact">
+                        <div class="col-12">
+                            <h1>LOKASI</h1>
+                            <h2>Jl Poras No. 7, Sindang Barang Loji</h2>
+                            <ul>
+                                <li>
+                                    <p>
+                                        Whatsapp :
+                                        <a
+                                            href="https://api.whatsapp.com/send/?phone=6287711177442&text&type=phone_number&app_absent=0">0877-1117-7442
+                                        </a>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        email :
+                                        <a href="https://smkit.pesat@gmail.com">smkit.pesat@gmail.com
+                                        </a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <iframe class="maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5115676718647!2d106.76819540000001!3d-6.5831478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff2d5ecf4b%3A0x9da488eab0064996!2sSMK%20informatika%20Pesat%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1686408889375!5m2!1sid!2sid"
+                            width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
-                <iframe class="maps"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5115676718647!2d106.76819540000001!3d-6.5831478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4ff2d5ecf4b%3A0x9da488eab0064996!2sSMK%20informatika%20Pesat%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1686408889375!5m2!1sid!2sid"
-                    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
     <br />
+    <div class="footer">
+        <footer>
+            <p>Copyright &copy; Kelompok 2 - Tugas Akhir Pemrograman Web Lanjutan 2024</p>
+        </footer>
+    </div>
 </body>
-<div class="footer">
-    <footer>
-        <p>Copyright &copy; Project 3 - Group 5 2023</p>
-    </footer>
-</div>
 <script src="script.js" lang="javascript"></script>
 <?php 
 include('bootstrap/footer.php');
-?> 
+?>
+
 </html>
