@@ -21,6 +21,13 @@
 
 <body>
     <style>
+        #home {
+            background-image: linear-gradient(rgba(44, 62, 80, 0.6), rgba(248, 241, 234, 0.33)), url("img/img4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 1500px;
+        }
     .home {
         padding-top: 110px;
         /* width: 100%; */
@@ -50,7 +57,7 @@
     </header>
 
     <section id="home">
-        <div class="home">
+        <div class="">
             <div class="header-home">
                 <div class="regis-form">
                     <h1>PENDAFTARAN</h1>
