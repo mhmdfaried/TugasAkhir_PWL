@@ -32,7 +32,7 @@
 
         // Check if the user is already logged in
         if(isset($_SESSION['status']) && $_SESSION['status'] === "login") {
-            header("Location: admin/");
+            header("Location: login.php");
             exit;
 }
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -52,14 +52,14 @@
                 // Registrasi berhasil, redirect ke halaman login atau halaman lain yang sesuai
                 echo "<script>
                 Swal.fire({
-                    title: 'Error!',
+                    title: 'Berhasil Daftar!',
                     text: 'Pendafftaran Berhasil',
                     icon: 'success',
                     timer: 3000,
                     confirmButtonColor: '#0d6efd',
                     timerProgressBar: true,
                     willClose: () => {
-                        window.location = 'admin/';
+                        window.location = 'login.php';
                     }
                 });
             </script>";

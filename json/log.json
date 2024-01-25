@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "id": "659f5217e6ce0d1307b5e209af7b2",
+        "tanggal": "2024-01-11 09:27:35",
+        "nama": "Ayam Bakar",
+        "email": "testing@gmail.com",
+        "username": "admin123",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-11 09:58:48"
+    },
+    {
+        "id": "65a3a0f744fb5bdcf9258b8503a08",
+        "tanggal": "2024-01-14 15:53:11",
+        "nama": "Roger Simanjuntak",
+        "email": "testing@gmail.com",
+        "username": "admin",
+        "status": "Sedang Login"
+    },
+    {
+        "id": "65a8897828c9e7f7da2b07c07f6bd",
+        "tanggal": "2024-01-18 09:14:16",
+        "nama": "dayat",
+        "email": "dayat@gmail.com",
+        "username": "dayat123",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-18 09:19:29"
+    },
+    {
+        "id": "65a88ac2a3b923ae9f19d5b4c9dda",
+        "tanggal": "2024-01-18 09:19:46",
+        "nama": "Roger Simanjuntak",
+        "email": "testing@gmail.com",
+        "username": "admin",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-18 09:20:05"
+    },
+    {
+        "id": "65a88d10a66fa248511c9ab81768d",
+        "tanggal": "2024-01-18 09:29:36",
+        "nama": "Roger Simanjuntak",
+        "email": "testing@gmail.com",
+        "username": "admin",
+        "status": "Sudah Logout",
+        "tanggal_logout": "2024-01-18 09:29:54"
+    },
+    {
+        "id": "65a88d2bdb36f84eee62d8bd9b247",
+        "tanggal": "2024-01-18 09:30:03",
+        "nama": "Roger Simanjuntak",
+        "email": "testing@gmail.com",
+        "username": "admin",
+        "status": "Sedang Login"
+    }
+]
